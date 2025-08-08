@@ -1,0 +1,5 @@
+- **Exchange Consolidation**: High betweenness nodes with many incoming edges suggest a consolidation pattern typical of exchanges aggregating funds from multiple sources into a central wallet. This pattern is consistent with the operational practices of exchanges to manage liquidity and facilitate large transactions.
+
+- **Mixer Activity**: Star-shaped fan-out patterns with nodes having high out-degree and low betweenness are indicative of mixing services. These services distribute funds from a single source across many addresses to obfuscate the origin of funds, a common practice for privacy-enhancing activities.
+
+- **Payout Batching**: Nodes with high out-degree but low betweenness centrality may represent payout batch transactions. This is where multiple payments are sent from one wallet in a single transaction, often used by businesses or services to manage transaction fees efficiently.

@@ -1,0 +1,5 @@
+- A prominent star-shaped fan-out pattern around node "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s" with many direct out-neighbors suggests payout batching, typical of exchanges or mixers distributing funds to multiple recipients.
+
+- Multiple nodes with moderate in-degree converging into single nodes with high betweenness imply many-to-one consolidation, likely representing exchange deposit addresses or mixer input aggregation aiming to obfuscate fund origins.
+
+- Presence of self-loop edges and chains involving repeated transactions on certain nodes (e.g., 3EEhPSkNM86N755DgTdSgkJN4AFaZCC5jU) indicates peeling chains, a known mixing technique to incrementally transfer funds and enhance privacy, consistent with mixing services active in late 2020.

@@ -1,0 +1,64 @@
+{
+  "sample_sizes": {
+    "cetras": 1000,
+    "rwfb": 1000
+  },
+  "role_comparison": {
+    "roles_found": {
+      "cetras_unique": [],
+      "rwfb_unique": [],
+      "common": [
+        "exchange_cold_wallet",
+        "service_aggregator",
+        "merchant_gateway",
+        "exchange_hot_wallet",
+        "mixer_tumbler",
+        "retail_user",
+        "mining_pool_payout"
+      ]
+    },
+    "distribution_differences": {
+      "exchange_cold_wallet": {
+        "cetras": 150,
+        "rwfb": 152,
+        "difference": 2
+      },
+      "service_aggregator": {
+        "cetras": 131,
+        "rwfb": 117,
+        "difference": 14
+      },
+      "merchant_gateway": {
+        "cetras": 149,
+        "rwfb": 154,
+        "difference": 5
+      },
+      "exchange_hot_wallet": {
+        "cetras": 142,
+        "rwfb": 134,
+        "difference": 8
+      },
+      "mixer_tumbler": {
+        "cetras": 144,
+        "rwfb": 131,
+        "difference": 13
+      },
+      "retail_user": {
+        "cetras": 139,
+        "rwfb": 162,
+        "difference": 23
+      },
+      "mining_pool_payout": {
+        "cetras": 145,
+        "rwfb": 150,
+        "difference": 5
+      }
+    }
+  },
+  "semantic_drift_metric": 0.5429,
+  "consistency_index": {
+    "cetras_ci": 0.7281,
+    "rwfb_ci": 0.5279,
+    "ci_difference": 0.0646
+  }
+}

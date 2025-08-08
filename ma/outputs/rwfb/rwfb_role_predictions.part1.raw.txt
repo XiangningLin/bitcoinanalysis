@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+    "role": "Centralized Exchange Hot Wallet",
+    "confidence": 0.95,
+    "rationale": "High in/out degree (147/167), balanced degree, high betweenness (0.0736) suggest a hub role. Top neighbors are diverse, indicating many counterparties. Likely a hot wallet managing active transactions."
+  },
+  {
+    "id": "bc1qpnd4frvamyjunpsx90kzydvqh6m5rwj5v22tea",
+    "role": "Retail User",
+    "confidence": 0.8,
+    "rationale": "Moderate in/out degree (24/18) and moderate betweenness (0.0179). Top neighbors are somewhat diverse but limited, typical of a user wallet with moderate activity."
+  },
+  {
+    "id": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+    "role": "Service Aggregator",
+    "confidence": 0.85,
+    "rationale": "In degree (27) higher than out degree (11), moderate betweenness (0.0179). Connects to multiple addresses, likely gathering funds from many users to few outputs."
+  },
+  {
+    "id": "3QkGnvRt7Crxg4kdR5riDEM9pMTibwfBQD",
+    "role": "Mixer/Tumbler",
+    "confidence": 0.9,
+    "rationale": "Low in degree (2) but high out degree (30), moderate betweenness (0.0333). This outflow pattern with many outputs matches typical mixer behavior."
+  },
+  {
+    "id": "3DmYZYkxgS5M1KvPTCXrDQbEe9NZhqmH7e",
+    "role": "Exchange Cold Wallet",
+    "confidence": 0.8,
+    "rationale": "Higher in degree (70) than out degree (41), low betweenness (0.0094), and presence among known exchange-related neighbors suggest cold storage."
+  },
+  {
+    "id": "bc1q2kh5aetu5nlhmqfnrr8fvd7h0sl9hdyhxlzcqa",
+    "role": "Retail User",
+    "confidence": 0.7,
+    "rationale": "Only incoming edges (in degree 23, out degree 0), moderate betweenness (0.0222) indicating an end point receiving funds, typical for a user."
+  },
+  {
+    "id": "bc1qz204mwjsc3jqrfuvgfkkwfzt9ltlvrk479hcqf",
+    "role": "Service Aggregator",
+    "confidence": 0.75,
+    "rationale": "Balanced moderate in/out degree (19/14), low betweenness (0.01), connects to various addresses, suggests aggregation role."
+  },
+  {
+    "id": "bc1qx4rlj0avdmn0v8k4wx9578wst95dvsamk3sxgp",
+    "role": "Retail User",
+    "confidence": 0.7,
+    "rationale": "Balanced degrees (14/14), low betweenness, typical of normal user wallet with moderate activity."
+  },
+  {
+    "id": "bc1qz9xamlapf3t74cuakx2zqyz0zxmyffke65a4qd",
+    "role": "Retail User",
+    "confidence": 0.7,
+    "

@@ -1,0 +1,244 @@
+```json
+[
+    {
+        "id": "bc1qmcyqljwqf2z73cguujkrxpn34vfwa0lpwkfr9l",
+        "role": "retail user",
+        "confidence": 0.8,
+        "rationale": "The node has a low degree with only outgoing transactions and no incoming transactions, indicating it is likely a retail user making payments. The betweenness is low, suggesting it is not a central node in the network."
+    },
+    {
+        "id": "bc1qh3jxum3kkmyjnggc096me8283jvf9t9klzw9yq",
+        "role": "retail user",
+        "confidence": 0.8,
+        "rationale": "Similar to bc1qmcyqljwqf2z73cguujkrxpn34vfwa0lpwkfr9l, this node has only outgoing transactions and no incoming ones, indicating a retail user. The low betweenness supports this role as it is not central in the network."
+    },
+    {
+        "id": "bc1qwr887jj4h3255r0pf04lxfmp3naxphmg6spxh2",
+        "role": "retail user",
+        "confidence": 0.8,
+        "rationale": "This node has a low degree with only outgoing transactions, indicating it is likely a retail user making payments. The low betweenness suggests it is not a central node in the network."
+    },
+    {
+        "id": "bc1qll334ywtcwpj2ukx7mznskuu207c3ff9hnul30",
+        "role": "retail user",
+        "confidence": 0.8,
+        "rationale": "The node has only outgoing transactions and no incoming ones, indicating it is likely a retail user. The low betweenness supports this role as it is not central in the network."
+    },
+    {
+        "id": "1LUUCFVK8MoUQXBSv36Snu5LKzQszsBBvd",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "353LSjbKcWGrQyNpLG739SzQkw2sAmQNRn",
+        "role": "merchant gateway",
+        "confidence": 0.6,
+        "rationale": "The node has more outgoing than incoming transactions and moderate betweenness, indicating it might be a merchant gateway facilitating payments to multiple addresses."
+    },
+    {
+        "id": "1E4YkheT7YAw49esx7rBjpdBaFvxPFHxD",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more outgoing than incoming transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "3F6a4FtgC8zKAhs3UAd7MjTAMeskDXQSS6",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "High in-degree and out-degree with low betweenness suggest this node aggregates transactions from various sources, acting as a hub for different services."
+    },
+    {
+        "id": "bc1q5k6s3g5ywu3fx46rj08tpjqrn7sekk4xs63whj",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has only outgoing transactions and no incoming ones, indicating it is likely a retail user. The moderate betweenness suggests some connectivity but not central."
+    },
+    {
+        "id": "343JhXKNLHswuGvz6jTWmDKg2k4mSKpK3d",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "3LjByoVEDoyp2hZbtZgqxrbRHAFtXVf9QZ",
+        "role": "merchant gateway",
+        "confidence": 0.6,
+        "rationale": "The node has more outgoing than incoming transactions and moderate betweenness, indicating it might be a merchant gateway facilitating payments to multiple addresses."
+    },
+    {
+        "id": "1MYeXeJquRSGxPdriFbETVqqcZrkgFMK29",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "3K3YswwevWwUm23ohZ7xMZQJWXFwFLyfS1",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "High in-degree and out-degree with low betweenness suggest this node aggregates transactions from various sources, acting as a hub for different services."
+    },
+    {
+        "id": "39Uv5D6MVH1qR9HATq1cMChDbriqsuHjS5",
+        "role": "merchant gateway",
+        "confidence": 0.6,
+        "rationale": "The node has more outgoing than incoming transactions and moderate betweenness, indicating it might be a merchant gateway facilitating payments to multiple addresses."
+    },
+    {
+        "id": "1EhPisZYEX5ZMfdLcpei8o2PPfGEVyCBAQ",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "bc1qz9xamlapf3t74cuakx2zqyz0zxmyffke65a4qd",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "1HmgoMEYJax6nWqFGX3R4EU91HnMYz4Lhm",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "35jDTzivhQezpuVKFLq82ZsNfezfQj2432",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "3FxUA8godrRmxgUaPv71b3XCUxcoCLtUx2",
+        "role": "merchant gateway",
+        "confidence": 0.6,
+        "rationale": "The node has more outgoing than incoming transactions and moderate betweenness, indicating it might be a merchant gateway facilitating payments to multiple addresses."
+    },
+    {
+        "id": "1LHbGg5c4MV6GERAcoDTvn9W5JvBq91tR9",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "17Z5nMEX7YAFYFEm1so6vnpiHWXUtsg7Ah",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "The node has only incoming transactions and no outgoing ones, indicating it is likely a cold wallet for storing funds. The moderate betweenness suggests some connectivity but not central."
+    },
+    {
+        "id": "19DnwpyC8CowHNHaBL9JRwskAouaBeFJ4j",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "The node has only incoming transactions and no outgoing ones, indicating it is likely a cold wallet for storing funds. The moderate betweenness suggests some connectivity but not central."
+    },
+    {
+        "id": "bc1qu7g027nk4yn27h8r6n7s8mckr2aygrl4u8xukh",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "36K3Rq8k3PTY6DdDxwWpjz52eZ8n9kD439",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "13PCKKvLkgGpFKeoTW6evze6dLShJjfYBi",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more incoming than outgoing transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "1LmK14A66cc8M7H5JXF4KoEJatocbD3wjX",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more incoming than outgoing transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "14TGhbjEGxQTQijJ37VECQwEVNhpw7ds7U",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "13cQF4SZGHJn7k4u5t9BJezWgHDaABNywS",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more incoming than outgoing transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "3NuUxApKiNEXhW4fQbHynniu1zHCaR9TQ8",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a high out-degree and low betweenness, this node likely aggregates transactions from various sources, acting as a hub for different services."
+    },
+    {
+        "id": "13q2vzkRfGFHNzYtKt242SbrpfCKitg1Sx",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "1PaQiE6sjagTjtW1PeGR8b5GVftTERswH9",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more outgoing than incoming transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "1Cmw9R9DQTgRKL6xWovTpgBQPiAqQ8aDwG",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more outgoing than incoming transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "36BruGMJkQRFjpPKVnYVpjzkaGx1wodioX",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "The node has only incoming transactions and no outgoing ones, indicating it is likely a cold wallet for storing funds. The moderate betweenness suggests some connectivity but not central."
+    },
+    {
+        "id": "bc1qk3ud4ncjcvwmq5mwh5a292y37fd247aj9nn3jw",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "3NdoBJPM4Yu9smXKg9S9rmHjSrMLsDhbLS",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a high out-degree and low betweenness, this node likely aggregates transactions from various sources, acting as a hub for different services."
+    },
+    {
+        "id": "3NDNcYd6C1boL5YcADBCcMqKn9MdKkr7RP",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "High in-degree and out-degree with low betweenness suggest this node aggregates transactions from various sources, acting as a hub for different services."
+    },
+    {
+        "id": "171sMpP2XYtFJBx5bvoLq7BKCtN6tqVQEN",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "With a balanced degree and moderate betweenness, this node likely aggregates transactions from various sources. The diverse set of neighbors suggests it acts as a hub for different services."
+    },
+    {
+        "id": "1acjmkfgQsjM655mUmcZKiaiHKokhaYKC",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more incoming than outgoing transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "1L2jrCmwmkHnDpKhC9rnuJWNjtEdi2HjKP",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree with more incoming than outgoing transactions, suggesting it is likely a retail user. The moderate betweenness indicates some connectivity but not central."
+    },
+    {
+        "id": "112pAGG8EBTkgDehxc9g5TMtbYB2ZqSYxu",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "The node has only incoming transactions and no outgoing ones, indicating it is likely a cold wallet for storing funds. The moderate betweenness suggests some connectivity but not central."
+    }
+]
+```

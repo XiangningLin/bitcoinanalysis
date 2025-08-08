@@ -1,0 +1,377 @@
+{
+  "snapshot": "RWFB sample (10000 nodes) from 2020-10_00.zip",
+  "graph_stats": {
+    "nodes": 10000,
+    "edges": 8834,
+    "avg_clustering": 0.03436473587278879,
+    "num_SCC": 9748,
+    "num_WCC": 3668,
+    "largest_SCC": 223,
+    "largest_WCC": 3580,
+    "diameter_estimate": 23
+  },
+  "top_hubs_by_degree": [
+    {
+      "node": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+      "degree": 385,
+      "closeness": 0.25026221942521504,
+      "betweenness": 0.6265348373009653
+    },
+    {
+      "node": "3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ",
+      "degree": 153,
+      "closeness": 0.21979979119326906,
+      "betweenness": 0.16248390961451148
+    },
+    {
+      "node": "338xujMDjUVdYqdE1kg37FTFMEK2cWQAAp",
+      "degree": 85,
+      "closeness": 0.2118252840909091,
+      "betweenness": 0.06482368033594056
+    },
+    {
+      "node": "35jDTzivhQezpuVKFLq82ZsNfezfQj2432",
+      "degree": 82,
+      "closeness": 0.19396271406893562,
+      "betweenness": 0.05685358995677038
+    },
+    {
+      "node": "bc1qut4p3dz20cjfr4n4xrxhuzg9v6sag0c7utz2md",
+      "degree": 36,
+      "closeness": 0.20747826086956522,
+      "betweenness": 0.05428426135818963
+    },
+    {
+      "node": "3Npnt1QMXeAjFa49eR3eDRAYDWBXTu7q7o",
+      "degree": 35,
+      "closeness": 0.19687551570493428,
+      "betweenness": 0.14339810935943237
+    },
+    {
+      "node": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+      "degree": 35,
+      "closeness": 0.19521108323333697,
+      "betweenness": 0.07913345008074285
+    },
+    {
+      "node": "bc1qa7gwsejxld2eaaq9cs77gqlfhkfdh5flf8mz4s",
+      "degree": 34,
+      "closeness": 0.19325053995680347,
+      "betweenness": 0.030457185827874215
+    },
+    {
+      "node": "bc1qsx87g8yau3yvamxfeyszngncaea7jucrumzyxc",
+      "degree": 33,
+      "closeness": 0.19512594046450768,
+      "betweenness": 0.02534506687171596
+    },
+    {
+      "node": "bc1q74wvnssnzy2nkja40n0ge0ryg7dghrhwczasl9",
+      "degree": 33,
+      "closeness": 0.20157702055758941,
+      "betweenness": 0.03744815873178766
+    },
+    {
+      "node": "39EKjvDK6UEkpaBcLVbBen1M4dhh2iE9Lq",
+      "degree": 31,
+      "closeness": 0.17264000771791038,
+      "betweenness": 0.019053603186489354
+    },
+    {
+      "node": "bc1qy90zwhlmrra5pxl3wjlyap2rdat04v8dlhu8zw",
+      "degree": 31,
+      "closeness": 0.19028124833856133,
+      "betweenness": 0.018942758565019993
+    },
+    {
+      "node": "bc1qkqewpv54snfx923c6ar3x65kl20rtvl4nvffmn",
+      "degree": 31,
+      "closeness": 0.1707619638341524,
+      "betweenness": 0.032789050435805545
+    },
+    {
+      "node": "bc1qxwtsuwdx4fvzdzclgn2ctl08kjx09prdq4wnnm",
+      "degree": 30,
+      "closeness": 0.18191521805428484,
+      "betweenness": 0.029706387855280167
+    },
+    {
+      "node": "bc1qd7dj85mr4y0jmh67xjx7559e9sm8smcp6shzrr",
+      "degree": 30,
+      "closeness": 0.20693842150910668,
+      "betweenness": 0.043228870576030844
+    },
+    {
+      "node": "3GfWyoYqUYPCQBtCN7UvzRF1QPKQExL79V",
+      "degree": 30,
+      "closeness": 0.17263168049392244,
+      "betweenness": 0.019493895329226848
+    },
+    {
+      "node": "bc1q5lhz0jmuayu2xere6mtydfzad7a70kt6w44e7x",
+      "degree": 30,
+      "closeness": 0.17124401913875598,
+      "betweenness": 0.034657252510060126
+    },
+    {
+      "node": "bc1q497mnt7nuadu9xwamyx8mxmk9xev46t6xvct6j",
+      "degree": 29,
+      "closeness": 0.18845769048496655,
+      "betweenness": 0.039926912270228015
+    },
+    {
+      "node": "3479gSjwpQXmw2PtuDqyTRqLk5b8e1KLJi",
+      "degree": 29,
+      "closeness": 0.14943632567849688,
+      "betweenness": 0.001643860487855843
+    },
+    {
+      "node": "3G5hBoSmASwMR1aK7SfVaR7hXr1nZPgUBe",
+      "degree": 28,
+      "closeness": 0.14789867349890493,
+      "betweenness": 0.001320456469590882
+    },
+    {
+      "node": "1Mun8q23tipbn1UCrPNHpYx761xxQVjnHL",
+      "degree": 28,
+      "closeness": 0.12779860739153723,
+      "betweenness": 0.01547693356266939
+    },
+    {
+      "node": "1N52wHoVR79PMDishab2XmRHsbekCdGquK",
+      "degree": 27,
+      "closeness": 0.18615416623322584,
+      "betweenness": 0.011729854977436324
+    },
+    {
+      "node": "bc1qdtjqp3r6wdstp09d8d5aspaa4xlfes5kmmz2pk",
+      "degree": 27,
+      "closeness": 0.21191307951921368,
+      "betweenness": 0.035274833927338184
+    },
+    {
+      "node": "1HckjUpRGcrrRAtFaaCAUaGjsPx9oYmLaZ",
+      "degree": 26,
+      "closeness": 0.12851910370583167,
+      "betweenness": 0.035591831175928276
+    },
+    {
+      "node": "1C6KEsVUHBRn9oLi6MQhfEoPCkKYqx6mKQ",
+      "degree": 26,
+      "closeness": 0.17911120008007206,
+      "betweenness": 0.0029603609573207266
+    },
+    {
+      "node": "3ByKbDxF1iAMRVjBQFBXq6rRhatn3ht62V",
+      "degree": 25,
+      "closeness": 0.16924386437792593,
+      "betweenness": 0.014706314442057713
+    },
+    {
+      "node": "bc1qsxtaekrrpgvstks0uk942thxmc8f9psj0ee0cc",
+      "degree": 24,
+      "closeness": 0.1982825484764543,
+      "betweenness": 0.019677426702625702
+    },
+    {
+      "node": "3LtHzj4Ggp6RZUKQ2dWpZUQYzAFjP41MAU",
+      "degree": 24,
+      "closeness": 0.15231731710431118,
+      "betweenness": 0.016440701909324975
+    },
+    {
+      "node": "bc1qg00qz38zl7hvp8z4j84vc665ankradx2gunztj",
+      "degree": 24,
+      "closeness": 0.19575561997484,
+      "betweenness": 0.019742902140389054
+    },
+    {
+      "node": "bc1qt5csvytj8wsyhzfjdvdh2nc09hpkh7pmmrdj3x",
+      "degree": 23,
+      "closeness": 0.2035025871382271,
+      "betweenness": 0.025297684240606372
+    }
+  ],
+  "top_bridges_by_betweenness": [
+    {
+      "node": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+      "degree": 385,
+      "closeness": 0.25026221942521504,
+      "betweenness": 0.6265348373009653
+    },
+    {
+      "node": "3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ",
+      "degree": 153,
+      "closeness": 0.21979979119326906,
+      "betweenness": 0.16248390961451148
+    },
+    {
+      "node": "3Npnt1QMXeAjFa49eR3eDRAYDWBXTu7q7o",
+      "degree": 35,
+      "closeness": 0.19687551570493428,
+      "betweenness": 0.14339810935943237
+    },
+    {
+      "node": "13Jo15QP9RsLhWpas5QkejUrhyhkVxGpJ7",
+      "degree": 5,
+      "closeness": 0.20525319722429317,
+      "betweenness": 0.08281931536833778
+    },
+    {
+      "node": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+      "degree": 35,
+      "closeness": 0.19521108323333697,
+      "betweenness": 0.07913345008074285
+    },
+    {
+      "node": "3G8wRZrFCybAJaYR55NNgrF5QJek6fbxqu",
+      "degree": 16,
+      "closeness": 0.17598465850420417,
+      "betweenness": 0.07771742024405796
+    },
+    {
+      "node": "3D3fVSsceJaPHXjmJdfCeMompHE4F7csSv",
+      "degree": 12,
+      "closeness": 0.20683079056865464,
+      "betweenness": 0.06553216421582855
+    },
+    {
+      "node": "338xujMDjUVdYqdE1kg37FTFMEK2cWQAAp",
+      "degree": 85,
+      "closeness": 0.2118252840909091,
+      "betweenness": 0.06482368033594056
+    },
+    {
+      "node": "1LWu7rPmrwyP8Ugh7pukP6A3s11LxAPyTo",
+      "degree": 8,
+      "closeness": 0.20460782071804254,
+      "betweenness": 0.06236648391087936
+    },
+    {
+      "node": "35jDTzivhQezpuVKFLq82ZsNfezfQj2432",
+      "degree": 82,
+      "closeness": 0.19396271406893562,
+      "betweenness": 0.05685358995677038
+    },
+    {
+      "node": "bc1qut4p3dz20cjfr4n4xrxhuzg9v6sag0c7utz2md",
+      "degree": 36,
+      "closeness": 0.20747826086956522,
+      "betweenness": 0.05428426135818963
+    },
+    {
+      "node": "19ET6fzFRSkXJ5p7VgvbWjS39b9LiQ2HvY",
+      "degree": 2,
+      "closeness": 0.21839150597998536,
+      "betweenness": 0.052120857203518695
+    },
+    {
+      "node": "1G47mSr3oANXMafVrR8UC4pzV7FEAzo3r9",
+      "degree": 19,
+      "closeness": 0.17129319421843592,
+      "betweenness": 0.05152780855843299
+    },
+    {
+      "node": "3MCKqEi1zKagYXpbGTkhgYiC4DxWYBKuyL",
+      "degree": 10,
+      "closeness": 0.15239514583776878,
+      "betweenness": 0.050959013173980834
+    },
+    {
+      "node": "bc1qd7dj85mr4y0jmh67xjx7559e9sm8smcp6shzrr",
+      "degree": 30,
+      "closeness": 0.20693842150910668,
+      "betweenness": 0.043228870576030844
+    },
+    {
+      "node": "15xrC5g6xBqT8JrsrQ8GP1TF3kHbvEUNns",
+      "degree": 2,
+      "closeness": 0.21449119021934557,
+      "betweenness": 0.042425093976594754
+    },
+    {
+      "node": "bc1quds709c47da3spjhqs9flej6krfqpgf7d732zu",
+      "degree": 23,
+      "closeness": 0.1939522028938384,
+      "betweenness": 0.04171218562759736
+    },
+    {
+      "node": "13q2vzkRfGFHNzYtKt242SbrpfCKitg1Sx",
+      "degree": 8,
+      "closeness": 0.20301775483578194,
+      "betweenness": 0.041442181427207105
+    },
+    {
+      "node": "bc1q497mnt7nuadu9xwamyx8mxmk9xev46t6xvct6j",
+      "degree": 29,
+      "closeness": 0.18845769048496655,
+      "betweenness": 0.039926912270228015
+    },
+    {
+      "node": "1DVM5paaEKjbKvYNRuhniwGd2XWiLMoUtr",
+      "degree": 3,
+      "closeness": 0.21507120966288085,
+      "betweenness": 0.03949134982021878
+    },
+    {
+      "node": "bc1q74wvnssnzy2nkja40n0ge0ryg7dghrhwczasl9",
+      "degree": 33,
+      "closeness": 0.20157702055758941,
+      "betweenness": 0.03744815873178766
+    },
+    {
+      "node": "18GrG72QCJa5sA3aGFEhyehHTZfNewi8va",
+      "degree": 4,
+      "closeness": 0.20226052557219554,
+      "betweenness": 0.03679540709868836
+    },
+    {
+      "node": "1CQt9dBzwKdAnzBeB9ZY7VSQLYNsvvhsHM",
+      "degree": 2,
+      "closeness": 0.14686089454247025,
+      "betweenness": 0.035642711794204786
+    },
+    {
+      "node": "1HckjUpRGcrrRAtFaaCAUaGjsPx9oYmLaZ",
+      "degree": 26,
+      "closeness": 0.12851910370583167,
+      "betweenness": 0.035591831175928276
+    },
+    {
+      "node": "bc1qdtjqp3r6wdstp09d8d5aspaa4xlfes5kmmz2pk",
+      "degree": 27,
+      "closeness": 0.21191307951921368,
+      "betweenness": 0.035274833927338184
+    },
+    {
+      "node": "bc1q5lhz0jmuayu2xere6mtydfzad7a70kt6w44e7x",
+      "degree": 30,
+      "closeness": 0.17124401913875598,
+      "betweenness": 0.034657252510060126
+    },
+    {
+      "node": "1MW8QJahh2YXovXpbhDcXAN8MEEL2AUn4n",
+      "degree": 7,
+      "closeness": 0.20534740948993058,
+      "betweenness": 0.03343393885240406
+    },
+    {
+      "node": "bc1qkqewpv54snfx923c6ar3x65kl20rtvl4nvffmn",
+      "degree": 31,
+      "closeness": 0.1707619638341524,
+      "betweenness": 0.032789050435805545
+    },
+    {
+      "node": "bc1qp4drljegkqemc9x9yx2qxsf4dl742ltlwq07w4",
+      "degree": 21,
+      "closeness": 0.20449091532396296,
+      "betweenness": 0.0320748978507337
+    },
+    {
+      "node": "bc1qeadaagq2ga4tzjqtw4gc3wpnu378ucavhcp8fn",
+      "degree": 4,
+      "closeness": 0.21302303434319386,
+      "betweenness": 0.03119372033509037
+    }
+  ]
+}

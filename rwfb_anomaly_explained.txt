@@ -1,0 +1,5 @@
+- The highly connected node "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s" with high in/out degrees and betweenness likely represents an exchange or large wallet consolidating many inputs and distributing to multiple outputs, consistent with exchange hot wallet activity in October 2020.
+
+- The star-shaped fan-out patterns centered around nodes like "3QkGnvRt7Crxg4kdR5riDEM9pMTibwfBQD" and "bc1qx4rlj0avdmn0v8k4wx9578wst95dvsamk3sxgp" suggest payout batching or automated disbursements, typical for exchanges or services distributing funds to many recipients.
+
+- The presence of many small-degree nodes funneling into a single high-betweenness node hints at many-to-one consolidation, characteristic of mixing services or privacy-enhancing mechanisms to obscure transaction trails during that period.

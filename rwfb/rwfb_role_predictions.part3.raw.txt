@@ -1,0 +1,124 @@
+```json
+[
+    {
+        "id": "37oYLQCAGU2kR17JJds2RDhnRxhN68Gtx9",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited network influence. The in-degree is low, indicating it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "31hPzMgdm1hLYveT9w7Rh4finE5so3ufQg",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "With no incoming transactions and only two outgoing, this node likely represents a retail user making payments. The low betweenness supports this role due to limited network connectivity."
+    },
+    {
+        "id": "3DY2TP8nCkN8Q44mWuGAiMDswPEbEKhhbK",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree and low betweenness, indicating limited influence. The in-degree is low, suggesting it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "3PLAkmDHqdhnh7eGfrQHekAma5mivRPUTR",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "This node has a low degree and low betweenness, suggesting limited influence. The in-degree is low, indicating it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "bc1qyemk24czaa6a2nr89nrz775ewvptxg7yfe750u",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "With a high out-degree and moderate betweenness, this node likely aggregates transactions from multiple sources, indicative of a service aggregator role."
+    },
+    {
+        "id": "3GkzgwMb7iRejxJUYXc2yNoRmbHmBaBPW2",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited influence. The in-degree is low, indicating it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "bc1q9nktyepcp3zv09j8h6tuf43scl4wjurghjzaa5",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "With equal in and out-degrees and low betweenness, this node likely represents a retail user making simple transactions."
+    },
+    {
+        "id": "bc1qrctpv8dlpk06uy8aqqcckz0xl2mfauka2unc3n",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited influence. The absence of incoming transactions indicates it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "3CMYnV5uh6biMgyHzoFxBRWxa4mZygB15Z",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree and low betweenness, indicating limited influence. The in-degree is low, suggesting it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "39fu362D6zf82WCc1ZZ6HCZQ5CusoZDYhF",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited influence. The in-degree is low, indicating it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "17PUUfNXwfgCx2ri3xeZpgqguzRWL1p9Zo",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "The node has a balanced degree and moderate betweenness, suggesting it aggregates transactions from multiple sources, indicative of a service aggregator role."
+    },
+    {
+        "id": "1Ccy11XhEYqGKo7m33fwSubSJsgVmRHweW",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited influence. The in-degree is low, indicating it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "bc1q3rwrjafnmr629axu3agn9xctvygksxdfw5tj8j",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "With equal in and out-degrees and low betweenness, this node likely represents a retail user making simple transactions."
+    },
+    {
+        "id": "3CobyqFcno1WL36pReDWK2gnmo74stPKk6",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "The node has a high in-degree and moderate betweenness, suggesting it aggregates transactions from multiple sources, indicative of a service aggregator role."
+    },
+    {
+        "id": "1NVBcdPf5BCPZM5MJ6J4j2PyBfBywE7Z5N",
+        "role": "retail user",
+        "confidence": 0.7,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited influence. The in-degree is low, indicating it primarily sends transactions, typical of a retail user."
+    },
+    {
+        "id": "3DEUAR2gwQLJRbrtZE8mjx6eBpamHwX4vj",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "The node has a low degree and low betweenness, suggesting limited influence. The balanced degree indicates simple transactions, typical of a retail user."
+    },
+    {
+        "id": "1D1CsAfjPM7Cznah4EsTncCijPqLcijMHX",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "With only incoming transactions and no outgoing, this node likely represents a retail user receiving payments. The low betweenness supports this role due to limited network connectivity."
+    },
+    {
+        "id": "1Kd1geUibwJaTTVGoRyZaPS8JQRnff8m4k",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "The node has a high degree and moderate betweenness, suggesting it aggregates transactions from multiple sources, indicative of a service aggregator role."
+    },
+    {
+        "id": "1KFg1eEHH4HJigNfBaTgq6V1rWykVknTg1",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "The node has a high in-degree and moderate betweenness, suggesting it aggregates transactions from multiple sources, indicative of a service aggregator role."
+    },
+    {
+        "id": "32PXb15xDxquJnwbenXd6umnqBWZq4sXo8",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "With equal in and out-degrees and low betweenness, this node likely represents a retail user making simple transactions."
+    }
+]
+```

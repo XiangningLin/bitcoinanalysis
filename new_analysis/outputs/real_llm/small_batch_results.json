@@ -1,0 +1,159 @@
+{
+  "method": "small_batch_real_llm",
+  "sample_size": 10,
+  "cetras_results": [
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.7,
+      "rationale": "Extracted from text due to JSON parse error",
+      "node_id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+      "node_label": "CETraS-1",
+      "raw_response": "根据提供的节点信息，我们可以进行以下分析：\n\n1. **入度和出度**：该节点的入度为2461，出度为1076，显示出高入度和低出度的特征。这通常表明该节点可能是一个冷钱包或接收地址，因为它接收了大量的比特币交易，但相对较少地进行支付。\n\n2. **中介中心性**：该节点的中介中心性为0.020253，虽然不是特别高，但也表明该节点在网络中可能扮演一定的中转角色，尽管它的主要功能似乎不是作为一个重要的中转节点。\n\n综合以上分析，该节点的特征更符合“exchange_cold_wallet”（交易所冷钱包）的角色，因为它接收了大量的比特币，但相对较少进行支付，且中介中心性表明它在网络中有一定的连接性，但并不是主要的交易节点。\n\n因此，最终的分类结果为：\n\n```json\n{\"role\": \"exchange_cold_wallet\", \"confidence\": 0.85, \"rationale\": \"该节点具有高入度和低出度，符合冷钱包的特征，同时中介中心性表明其在网络中有一定的连接性。\"}"
+    },
+    {
+      "role": "exchange_hot_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高出度（491）和低入度（1），这表明它主要用于发送交易，符合热钱包的特征。尽管中介中心性为0，表明它不是一个重要的中转节点，但其高出度仍然支持其作为交易所热钱包的角色。",
+      "node_id": "1GX28yLjVWux7ws4UQ9FB4MnLH4UKTPK2z",
+      "node_label": "CETraS-2"
+    },
+    {
+      "role": "exchange_hot_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高出度（446）和低入度（0），这表明它主要用于向其他地址发送比特币，符合热钱包的特征。中介中心性为0，说明该节点在网络中并不扮演重要的中转角色，进一步支持其作为交易所热钱包的可能性。",
+      "node_id": "3FxUA8godrRmxgUaPv71b3XCUxcoCLtUx2",
+      "node_label": "CETraS-3"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（221）和低出度（76），这通常表明它是一个冷钱包或接收地址。由于其中介中心性为0，说明它在网络中并不扮演重要的中转角色，进一步支持其作为冷钱包的分类。",
+      "node_id": "3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ",
+      "node_label": "CETraS-4"
+    },
+    {
+      "role": "exchange_hot_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高出度（215）和低入度（1），这表明它主要用于发送交易，符合热钱包的特征。热钱包通常用于频繁交易和支付，因此该节点可能是一个交易所的热钱包。",
+      "node_id": "39XpoaixBAbUZzaq7g73tmvogBw6rGv8JP",
+      "node_label": "CETraS-5"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（177）和低出度（1），这通常表明它是一个冷钱包或接收地址。由于其入度远高于出度，且中介中心性为0，说明该节点在网络中并不充当重要的中转角色，符合交易所冷钱包的特征。",
+      "node_id": "1KFg1eEHH4HJigNfBaTgq6V1rWykVknTg1",
+      "node_label": "CETraS-6"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（175）且出度为0，表明它主要用于接收交易，符合冷钱包的特征。中介中心性为0，进一步支持其作为冷钱包的角色，因为冷钱包通常不参与频繁的交易或转账。",
+      "node_id": "3BTMJdz5QDxHvBKG3UdYc8R3ZhExeshdr9",
+      "node_label": "CETraS-7"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有较高的入度（89）和相对较低的出度（78），这表明它主要用于接收交易，符合冷钱包的特征。此外，中介中心性较低（0.000671）表明该节点在网络中并不是一个重要的中转节点，进一步支持其作为冷钱包的角色。",
+      "node_id": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+      "node_label": "CETraS-8"
+    },
+    {
+      "role": "exchange_hot_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高出度（160）和低入度（1），这表明它可能是一个热钱包，主要用于向多个地址发送交易。虽然中介中心性为0，表示它在网络中不是重要的中转节点，但其高出度特征符合交易所热钱包的典型行为。",
+      "node_id": "1MRNQX9wcSbEzt4NgkCN6i2UDgxUeuEe9P",
+      "node_label": "CETraS-9"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有较高的入度（96）和相对较低的出度（64），这表明它主要用于接收交易，符合冷钱包的特征。此外，虽然中介中心性较低（0.001886），但其入出度的比例更倾向于冷钱包的特征，因此可以推测该节点可能是一个交易所的冷钱包。",
+      "node_id": "338xujMDjUVdYqdE1kg37FTFMEK2cWQAAp",
+      "node_label": "CETraS-10"
+    }
+  ],
+  "rwfb_results": [
+    {
+      "role": "service_aggregator",
+      "confidence": 0.85,
+      "rationale": "该节点的入度和出度相对平衡，且总度数较高，表明它在网络中既接收又发送大量交易，可能作为服务聚合器。此外，中介中心性值虽然不算特别高，但仍然显示出一定的中转能力，进一步支持其作为服务聚合器的角色。",
+      "node_id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+      "node_label": "RWFB-1"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（228）和相对较低的出度（202），这表明它主要用于接收交易，符合冷钱包的特征。此外，中介中心性较低（0.004724）进一步支持其作为冷钱包的角色，因为冷钱包通常不作为网络中的重要中转节点。",
+      "node_id": "3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ",
+      "node_label": "RWFB-2"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（143）和相对较低的出度（104），这表明它主要用于接收交易，符合冷钱包的特征。此外，节点的中介中心性较低（0.001811），这进一步支持其作为冷钱包的角色，因为冷钱包通常不参与频繁的交易活动。",
+      "node_id": "338xujMDjUVdYqdE1kg37FTFMEK2cWQAAp",
+      "node_label": "RWFB-3"
+    },
+    {
+      "role": "exchange_hot_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高出度（232）和低入度（2），这表明它主要用于发送交易，符合热钱包的特征。尽管中介中心性为0，说明它在网络中并不是重要的中转节点，但其高出度仍然表明它可能是一个活跃的支付地址，常见于交易所的热钱包。",
+      "node_id": "3FxUA8godrRmxgUaPv71b3XCUxcoCLtUx2",
+      "node_label": "RWFB-4"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（137）和相对较低的出度（89），这表明它主要用于接收交易，符合冷钱包的特征。此外，中介中心性较低（0.002886）表明该节点在网络中并不是一个重要的中转节点，进一步支持其作为冷钱包的角色。",
+      "node_id": "35jDTzivhQezpuVKFLq82ZsNfezfQj2432",
+      "node_label": "RWFB-5"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有较高的入度（69）和较低的出度（32），这表明它主要用于接收资金，符合冷钱包的特征。此外，中介中心性较低（0.000277）进一步支持其作为冷钱包的角色，因为冷钱包通常不参与频繁的交易或中转。",
+      "node_id": "3G5hBoSmASwMR1aK7SfVaR7hXr1nZPgUBe",
+      "node_label": "RWFB-6"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有较高的入度（61）和相对较低的出度（37），这表明它主要用于接收资金，符合冷钱包的特征。此外，中介中心性较低（0.000256）表明它在网络中并不是一个重要的中转节点，进一步支持其作为冷钱包的角色。",
+      "node_id": "bc1qsxtaekrrpgvstks0uk942thxmc8f9psj0ee0cc",
+      "node_label": "RWFB-7"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（63）和相对较低的出度（35），这表明它主要用于接收资金，符合冷钱包的特征。此外，中介中心性较低（0.000552）表明该节点在网络中并不是一个重要的中转节点，进一步支持其作为冷钱包的角色。",
+      "node_id": "bc1q74wvnssnzy2nkja40n0ge0ryg7dghrhwczasl9",
+      "node_label": "RWFB-8"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有较高的入度（69）和较低的出度（27），这表明它主要用于接收交易，符合冷钱包的特征。此外，中介中心性较低（0.000178）进一步支持其作为冷钱包的角色，因为冷钱包通常不作为交易的中转节点。",
+      "node_id": "3479gSjwpQXmw2PtuDqyTRqLk5b8e1KLJi",
+      "node_label": "RWFB-9"
+    },
+    {
+      "role": "exchange_cold_wallet",
+      "confidence": 0.85,
+      "rationale": "该节点具有高入度（70）和低出度（23），这表明它主要用于接收资金，符合冷钱包的特征。中介中心性较低（0.000135）进一步支持其作为冷钱包的角色，因为冷钱包通常不作为交易的中转节点。",
+      "node_id": "39EKjvDK6UEkpaBcLVbBen1M4dhh2iE9Lq",
+      "node_label": "RWFB-10"
+    }
+  ],
+  "cetras_role_distribution": {
+    "exchange_cold_wallet": 6,
+    "exchange_hot_wallet": 4
+  },
+  "rwfb_role_distribution": {
+    "service_aggregator": 1,
+    "exchange_cold_wallet": 8,
+    "exchange_hot_wallet": 1
+  },
+  "timestamp": "2025-10-02 22:30:39"
+}

@@ -1,9 +1,7 @@
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-import argparse, zipfile, json, math, random
-from collections import deque
+import argparse, zipfile, json, random, os
 import pandas as pd
 import numpy as np
 import networkx as nx
@@ -11,7 +9,6 @@ import networkx as nx
 def load_edges_from_zip(zip_path, csv_name=None, edge_cap=None, chunksize=200_000):
     zf = zipfile.ZipFile(zip_path)
     if csv_name is None:
-        # pick first .csv in archive
         names = [n for n in zf.namelist() if n.lower().endswith(".csv")]
         if not names:
             raise ValueError("No CSV found in ZIP")
@@ -95,16 +92,70 @@ def centrality_lcc(Gs, k_sample=500, seed=7):
     }).sort_values("degree", ascending=False)
     return df
 
+def export_top_nodes_and_edges(Gs, nodes_output="llm4tg_nodes_top1000_rwfb.jsonl", edges_output="llm4tg_edges_top1000_rwfb.csv", top_k=1000):
+    """Export top-k nodes with profiles and induced edges for LLM analysis."""
+    import json
+    
+    # Compute node metrics
+    nodes_data = []
+    in_deg = dict(Gs.in_degree())
+    out_deg = dict(Gs.out_degree())
+    
+    # Betweenness for top nodes
+    if Gs.number_of_nodes() > 500:
+        betweenness = nx.betweenness_centrality(Gs, k=min(100, Gs.number_of_nodes()//5), normalized=True)
+    else:
+        betweenness = nx.betweenness_centrality(Gs, normalized=True)
+    
+    for node in Gs.nodes():
+        profile = {
+            "id": node,
+            "in_degree": in_deg.get(node, 0),
+            "out_degree": out_deg.get(node, 0),
+            "total_degree": in_deg.get(node, 0) + out_deg.get(node, 0),
+            "betweenness": betweenness.get(node, 0.0),
+        }
+        nodes_data.append(profile)
+    
+    # Sort by total degree and take top-k
+    nodes_data.sort(key=lambda x: x["total_degree"], reverse=True)
+    top_nodes = nodes_data[:top_k]
+    top_node_ids = set([n["id"] for n in top_nodes])
+    
+    # Write nodes JSONL
+    with open(nodes_output, 'w', encoding='utf-8') as f:
+        for node_profile in top_nodes:
+            f.write(json.dumps(node_profile, ensure_ascii=False) + '\n')
+    print(f"Wrote {len(top_nodes)} nodes to {nodes_output}")
+    
+    # Get induced edges for top nodes
+    induced_edges = []
+    for u, v in Gs.edges():
+        if u in top_node_ids and v in top_node_ids:
+            induced_edges.append((u, v))
+    
+    # Write edges CSV
+    with open(edges_output, 'w', encoding='utf-8') as f:
+        f.write("source,target\n")
+        for u, v in induced_edges:
+            f.write(f"{u},{v}\n")
+    print(f"Wrote {len(induced_edges)} edges to {edges_output}")
+    
+    return top_nodes, induced_edges
+
 def main():
+    import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument("--zip", required=True, help="Path to ZIP with CSV (timestamp, source_address, destination_address, satoshi)")
-    ap.add_argument("--csv_name", default=None, help="CSV name inside the ZIP (optional)")
-    ap.add_argument("--edge_cap", type=int, default=800000, help="Max edges to read for memory control")
-    ap.add_argument("--sample_nodes", type=int, default=10000, help="RWFB sample node count")
-    ap.add_argument("--p_flyback", type=float, default=0.3, help="RWFB flying-back probability")
-    ap.add_argument("--teleport_p", type=float, default=0.01, help="Random teleport probability")
-    ap.add_argument("--seed", type=int, default=7, help="Random seed")
-    ap.add_argument("--out_json", default="llm4tg_summary.json", help="Output JSON with metrics and top nodes")
+    ap.add_argument("--zip", required=True, help="Path to ZIP with CSV (timestamp,source_address,destination_address,satoshi)")
+    ap.add_argument("--csv_name", default=None)
+    ap.add_argument("--edge_cap", type=int, default=800000)
+    ap.add_argument("--sample_nodes", type=int, default=10000)
+    ap.add_argument("--p_flyback", type=float, default=0.3)
+    ap.add_argument("--teleport_p", type=float, default=0.01)
+    ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--out_json", default="llm4tg_summary.json")
+    ap.add_argument("--export_llm", action="store_true", help="Export top-K nodes/edges for LLM")
+    ap.add_argument("--top_k", type=int, default=1000, help="Number of top nodes to export for LLM (default: 1000)")
     args = ap.parse_args()
 
     edges = load_edges_from_zip(args.zip, args.csv_name, args.edge_cap)
@@ -125,7 +176,14 @@ def main():
     with open(args.out_json, "w") as f:
         json.dump(summary, f, indent=2)
     print(f"Wrote {args.out_json}")
+    
+    # Export for LLM if requested
+    if args.export_llm:
+        print(f"\nExporting top-{args.top_k} nodes and edges for LLM analysis...")
+        export_top_nodes_and_edges(Gs, 
+                                  nodes_output=f"llm4tg_nodes_top{args.top_k}_rwfb.jsonl",
+                                  edges_output=f"llm4tg_edges_top{args.top_k}_rwfb.csv",
+                                  top_k=args.top_k)
 
 if __name__ == "__main__":
-    import os
     main()

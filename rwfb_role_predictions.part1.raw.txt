@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+    "role": "Centralized Exchange Hot Wallet",
+    "confidence": 0.9,
+    "rationale": "High in/out degrees and degree balance indicate heavy bidirectional flow typical for hot wallets. High betweenness shows central position. Diverse neighbors suggest many counterparties, common for exchange wallets."
+  },
+  {
+    "id": "bc1qpnd4frvamyjunpsx90kzydvqh6m5rwj5v22tea",
+    "role": "Retail User",
+    "confidence": 0.7,
+    "rationale": "Moderate degrees with more in-degree than out-degree and medium betweenness suggest a user receiving funds and occasionally spending. Neighbor diversity is moderate, typical for retail users."
+  },
+  {
+    "id": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+    "role": "Service Aggregator/Merchant Gateway",
+    "confidence": 0.75,
+    "rationale": "Higher in-degree than out-degree with moderate betweenness suggests aggregation of incoming payments and forwarding out. Diverse neighbors support gateway role."
+  },
+  {
+    "id": "3QkGnvRt7Crxg4kdR5riDEM9pMTibwfBQD",
+    "role": "Mixer/Tumbler",
+    "confidence": 0.85,
+    "rationale": "Low in-degree but high out-degree with medium betweenness indicates redistribution of funds, a key mixer characteristic. Neighbor diversity is high."
+  },
+  {
+    "id": "3DmYZYkxgS5M1KvPTCXrDQbEe9NZhqmH7e",
+    "role": "Mining Pool Payout",
+    "confidence": 0.8,
+    "rationale": "High in-degree and lower out-degree with moderate betweenness suggests a payout node collecting mining rewards and distributing to miners."
+  },
+  {
+    "id": "bc1q2kh5aetu5nlhmqfnrr8fvd7h0sl9hdyhxlzcqa",
+    "role": "Exchange Cold Wallet",
+    "confidence": 0.75,
+    "rationale": "Only in-degree and zero out-degree with medium betweenness indicate storage of funds without spending, typical for cold wallets."
+  },
+  {
+    "id": "bc1qz204mwjsc3jqrfuvgfkkwfzt9ltlvrk479hcqf",
+    "role": "Merchant Gateway",
+    "confidence": 0.7,
+    "rationale": "Balanced moderate degrees with moderate betweenness and diverse neighbors imply a gateway forwarding payments."
+  },
+  {
+    "id": "bc1qx4rlj0avdmn0v8k4wx9578wst95dvsamk3sxgp",
+    "role": "Service Aggregator",
+    "confidence": 0.7,
+    "rationale": "Balanced in/out degrees with moderate betweenness and neighbor diversity indicate aggregation and redistribution of payments."
+  },
+  {
+    "id": "bc1qz9xamlapf3t74cuakx2zqyz0zxmyffke65a4qd",
+    "role": "Merchant Gateway",
+    "confidence": 0.65,
+    "rationale": "Slightly higher in-degree than out-degree with moderate betweenness and diverse neighbors consistent with payment processing role."
+  },
+  {
+    "id": "bc1q22rr97s9lnna39gfvjy84vuzn0muems0y7y9

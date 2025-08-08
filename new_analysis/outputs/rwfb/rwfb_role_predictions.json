@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+    "role": "centralized exchange hot wallet",
+    "confidence": 0.9,
+    "rationale": "High in-degree and out-degree with significant total degree and betweenness suggest frequent transaction flow typical of an exchange hot wallet."
+  },
+  {
+    "id": "3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ",
+    "role": "merchant gateway",
+    "confidence": 0.7,
+    "rationale": "Moderate in-degree and out-degree with modest betweenness, indicating a role in facilitating transactions but not as a central hub."
+  },
+  {
+    "id": "338xujMDjUVdYqdE1kg37FTFMEK2cWQAAp",
+    "role": "retail user",
+    "confidence": 0.6,
+    "rationale": "Low in-degree and out-degree with low betweenness, suggesting limited transaction volume typical of a retail user."
+  },
+  {
+    "id": "3Npnt1QMXeAjFa49eR3eDRAYDWBXTu7q7o",
+    "role": "service aggregator",
+    "confidence": 0.8,
+    "rationale": "Low in-degree but high out-degree and connections to diverse nodes indicate a role in distributing transactions, typical of a service aggregator."
+  },
+  {
+    "id": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+    "role": "exchange cold wallet",
+    "confidence": 0.75,
+    "rationale": "Higher in-degree than out-degree, low betweenness, and connections to hot wallets suggest storage rather than active transaction processing."
+  }
+]

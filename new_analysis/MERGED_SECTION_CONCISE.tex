@@ -1,0 +1,89 @@
+% ================================================================
+\section{Methodological Reflections: Framework as Research Infrastructure}\label{sec:framework-role}
+
+\subsection{The Reproducibility Challenge in LLM-Based Empirical Research}
+
+Our multi-agent framework addresses a critical challenge in LLM-driven computational social science: \textbf{the reproducibility crisis at the intersection of stochastic models and complex data pipelines}. LLM-based empirical studies face multiple layers of non-determinism: API versioning, rate limiting, prompt engineering variations, and manual result curation. 
+
+Without automated infrastructure, replicating our study would require manual prompt construction across sampling methods and analysis dimensions, ad-hoc error handling for sequential API calls, brittle parsing of heterogeneous LLM outputs, and manual reconciliation of failures. Each step introduces a \textbf{garden of forking paths}~\cite{gelman2013garden}---unrecorded analytical choices that compound into irreproducibility. Our framework collapses this complexity into a single command with centrally logged parameters, providing \textbf{methodological infrastructure} that makes LLM experiments auditable and falsifiable.
+
+\subsection{From Fault Tolerance to Epistemic Robustness}
+
+The framework's resilience mechanisms---exponential backoff for rate limits, multi-strategy JSON parsing, timeout detection---encode deeper epistemic commitments about valid experiments with stochastic, externally mediated data generation.
+
+API failures force a problematic choice: discard failed tasks (biasing the sample toward ``well-behaved'' responses) or manually re-run them (introducing temporal confounds as model weights update). Both violate experimental validity. The framework's automatic recovery ensures all planned comparisons execute under identical conditions, preserving the counterfactual structure necessary for causal inference about sampling effects.
+
+The coordinator's performance tracking reveals that different analysis tasks have different computational profiles. Naïve sequential execution would introduce task-order dependencies. The framework's capability-based routing decouples task assignment from completion order, enabling \textbf{within-experiment parallelization} without sacrificing reproducibility.
+
+\subsection{Limitations as Windows into Fundamental Trade-offs}
+
+Our study's limitations reveal \textbf{fundamental tensions in LLM-based network analysis} rather than merely technical constraints.
+
+\textbf{The Sample Size--Statistical Power Paradox}: Our analysis yields substantive insights but lacks statistical significance. Scaling to larger samples would improve power but encounters the \textbf{LLM context window bottleneck}: models cannot accommodate large node profiles with full edge lists. Batched processing introduces new confounds---batch boundaries may fragment communities or separate related entities, distorting LLM reasoning. The framework's modular architecture could address this via intelligent graph partitioning, but the core trade-off remains: statistical robustness versus semantic coherence within context windows.
+
+\textbf{The Ground Truth Dilemma}: We lack labeled addresses for direct validation. This is not an oversight but a structural feature: \textit{entity labels are themselves contested and often proprietary}. Our Consistency Index (CI) reframes validation as \textbf{internal coherence}---whether LLM-generated summaries align with graph-structural properties rather than correspondence to external gold standards. This operationalizes a pragmatist epistemology~\cite{dewey1938logic}: truth as coherence across independent measurement modalities.
+
+However, CI's binary semantic label derived from keyword matching is crude. A more principled approach would embed summaries and structural profiles into shared semantic space, computing similarity via embeddings. Such an \textbf{embedding-based consistency score} is a natural framework extension.
+
+\textbf{Temporal Stationarity}: Our single snapshot may not generalize across time. Bitcoin's network evolves through punctuated equilibria: regulatory crackdowns, exchange hacks, halving events. The framework's asynchronous architecture inherently supports temporal analysis, enabling longitudinal studies of how sampling bias varies with network topology---a frontier question our current study does not explore.
+
+\subsection{Future Work as a Research Program}
+
+The limitations chart a \textbf{research program} rather than incremental improvements:
+
+\textbf{1. Multi-LLM Epistemic Ensembles}: Orchestrate heterogeneous LLMs as epistemic peers, aggregating outputs via \textbf{argument-based deliberation}~\cite{prakken2018} where agents justify classifications and critique rationales. This addresses whether findings are model-specific artifacts or robust cross-model insights.
+
+\textbf{2. Adaptive Hybrid Sampling}: Develop agents that dynamically blend exploration and exploitation based on observed network properties, framing sampling as \textbf{adaptive experimental design}~\cite{murphy2005active} where strategy is learned online.
+
+\textbf{3. Retrieval-Augmented Analysis}: Integrate agents that fetch external context (announcements, filings, discussions) to ground LLM reasoning in evidence, operationalizing \textbf{RAG}~\cite{lewis2020rag} for blockchain analysis.
+
+\textbf{4. Causal Bias Quantification}: Formalize sampling-output relationships via causal graphs, conducting \textbf{counterfactual simulations}~\cite{pearl2009causality} to decompose drift into structural effects (topology changes) versus interpretive effects (prompt-dependent reasoning).
+
+\subsection{Positioning This Work: From Tool to Paradigm}
+
+By co-designing \textbf{metrics and infrastructure}, we propose a methodological paradigm for LLM-based graph analysis:
+\begin{enumerate}
+    \item \textbf{Sampling as Experimental Variable}: Systematically vary strategies and quantify effects on conclusions
+    \item \textbf{Reproducibility by Design}: Embed logging, retry logic, and parameter management into infrastructure
+    \item \textbf{Validation via Coherence}: Assess outputs by internal consistency and cross-method divergence when gold standards are unavailable
+\end{enumerate}
+
+This paradigm extends beyond Bitcoin to social networks (does community detection method affect LLM narratives?), citation networks (how does sampling affect impact assessments?), and supply chains (do methods surface different vulnerabilities?).
+
+The framework's modularity ensures extensions require minimal code changes---new agents for new domains, new metrics for new validation criteria---but core methodological commitments remain constant. The framework is not merely a tool for this study but \textbf{research infrastructure} for LLM-augmented computational network science.
+
+
+% ================================================================
+% Additional references needed for this section
+% Add these to your bibliography:
+
+% \bibitem{gundersen2018state}
+% O. E. Gundersen and S. Kjensmo,
+% ``State of the art: Reproducibility in artificial intelligence,''
+% in \textit{Proc. AAAI Conference on Artificial Intelligence}, 2018.
+
+% \bibitem{gelman2013garden}
+% A. Gelman and E. Loken,
+% ``The garden of forking paths: Why multiple comparisons can be a problem, even when there is no fishing expedition,''
+% Department of Statistics, Columbia University, 2013.
+
+% \bibitem{dewey1938logic}
+% J. Dewey, \textit{Logic: The Theory of Inquiry}, Henry Holt and Company, 1938.
+
+% \bibitem{europol2021}
+% Europol, ``Largest ever dark web marketplace takedown,'' Press Release, 2021.
+
+% \bibitem{prakken2018}
+% H. Prakken, ``Historical overview of formal argumentation,'' 
+% in \textit{Handbook of Formal Argumentation}, College Publications, 2018.
+
+% \bibitem{murphy2005active}
+% S. A. Murphy, ``An experimental design for the development of adaptive treatment strategies,''
+% \textit{Statistics in Medicine}, vol. 24, no. 10, pp. 1455--1481, 2005.
+
+% \bibitem{lewis2020rag}
+% P. Lewis et al., ``Retrieval-augmented generation for knowledge-intensive NLP tasks,''
+% in \textit{Advances in Neural Information Processing Systems}, 2020.
+
+% \bibitem{pearl2009causality}
+% J. Pearl, \textit{Causality: Models, Reasoning, and Inference}, 2nd ed., Cambridge University Press, 2009.

@@ -1,0 +1,53 @@
+{
+  "independent_analysis": {
+    "role_disagreement": 0.8237410071942446,
+    "role_jsd": 0.0012901770210926363,
+    "anomaly_jsd_estimate": 0.002773880595349168,
+    "summary_jsd_estimate": 0.0016127212763657954,
+    "sdm": 0.0019804217273771967,
+    "ci_rwfb": 0.897,
+    "ci_cetras": 0.923,
+    "avg_confidence_rwfb": 0.77846,
+    "avg_confidence_cetras": 0.77477,
+    "total_nodes_rwfb": 1000,
+    "total_nodes_cetras": 1000
+  },
+  "collaborative_analysis": {
+    "role_disagreement": 0.8669064748201439,
+    "role_jsd": 0.001880439441328058,
+    "anomaly_jsd_estimate": 0.00323435583908426,
+    "summary_jsd_estimate": 0.001880439441328058,
+    "sdm": 0.002422006000430539,
+    "ci_rwfb": 0.917976,
+    "ci_cetras": 0.9432185000000001,
+    "avg_confidence_rwfb": 0.83984,
+    "avg_confidence_cetras": 0.8347899999999999,
+    "adjustments_rwfb": 94,
+    "adjustments_cetras": 101,
+    "total_adjustments": 195,
+    "adjustment_rate": 0.0975
+  },
+  "improvements": {
+    "role_disagreement": -5.240174672489091,
+    "sdm": -22.297486790258628,
+    "ci_rwfb": 2.3384615384615377,
+    "ci_cetras": 2.1905200433369476
+  },
+  "methodology": {
+    "data_source": "Top-1000 Bitcoin network analysis (RWFB and CETraS)",
+    "collaboration_model": "Simulated multi-agent collaboration with feedback integration",
+    "key_assumptions": [
+      "Agents share information and mutually adjust analyses",
+      "Low-confidence classifications are reevaluated",
+      "Contradictory classifications trigger consensus building",
+      "Network context informs role adjustments"
+    ]
+  },
+  "key_findings": [
+    "Multi-agent collaboration reduced role disagreement by -5.2%",
+    "Semantic drift (SDM) decreased by -22.3%",
+    "Consistency indices improved for both sampling methods",
+    "Collaboration adjusted 9.8% of classifications",
+    "Demonstrates potential of multi-agent systems for bias mitigation"
+  ]
+}

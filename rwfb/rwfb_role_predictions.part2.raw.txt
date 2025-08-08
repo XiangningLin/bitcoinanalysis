@@ -1,0 +1,244 @@
+```json
+[
+    {
+        "id": "bc1qpjel0vq9sxaelvvjeagcnf8xgrsypkxxhx20wj",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in/out-degree (8 each) and moderate betweenness suggest a role in aggregating transactions. The diverse set of neighbors indicates interaction with various entities, typical of a service aggregator."
+    },
+    {
+        "id": "3K3YswwevWwUm23ohZ7xMZQJWXFwFLyfS1",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Higher in-degree (8) than out-degree (3) and moderate betweenness suggest receiving more than sending, typical of a retail user. Limited out-neighbors indicate less diverse interactions."
+    },
+    {
+        "id": "1NUZbW2s1CzDB6YQ5Tu1NME8MbBp6htBQE",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "High degree (22) and moderate betweenness suggest a central role in transaction aggregation. The diverse set of neighbors supports the aggregator role."
+    },
+    {
+        "id": "33MGnA6Gx9ihKjhbaRr1nCAdxxZAp8a9ww",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Slightly higher out-degree (7) than in-degree (5) with moderate betweenness suggests typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "3Q14Mdw71VvhSaakwHPtEH1Hta7nbv279x",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Balanced in/out-degree (5/4) and moderate betweenness suggest a typical user profile, interacting with a limited number of entities."
+    },
+    {
+        "id": "3H5dDX5KANq3KySUei8qY44bU9BUUFeQSU",
+        "role": "retail user",
+        "confidence": 0.4,
+        "rationale": "Low degree (3) and high betweenness suggest limited but potentially important interactions, typical of a retail user with specific transaction needs."
+    },
+    {
+        "id": "3NMNACYLLYB7YiZXWtLVeV4tw8ZhZqBgG6",
+        "role": "merchant gateway",
+        "confidence": 0.7,
+        "rationale": "High out-degree (9) with no in-degree suggests a role in distributing funds, typical of merchant gateways handling customer payments."
+    },
+    {
+        "id": "3JjPf13Rd8g6WAyvg8yiPnrsdjJt1NP4FC",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "High out-degree (21) and moderate betweenness suggest a central role in distributing transactions, indicative of a service aggregator."
+    },
+    {
+        "id": "1J4VRbYboWYgDaVBxiRHqhge13fTZUQ8Cu",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Low degree (3) and moderate betweenness suggest limited interactions, typical of a retail user with specific transaction needs."
+    },
+    {
+        "id": "bc1qc6g23e8sclmguaw27kkdk7snrzzqq354dxswwl",
+        "role": "exchange cold wallet",
+        "confidence": 0.9,
+        "rationale": "High in-degree (19) with no out-degree suggests accumulation of funds, typical of an exchange cold wallet storing assets securely."
+    },
+    {
+        "id": "1E94zHaU5M22TrAK7FUQeXm5BP9EmP9RLx",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Balanced in/out-degree (3 each) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "3BTACPzF8MxrNpPAMSwkT7FyC32tM1Fszd",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Higher in-degree (11) than out-degree (1) with moderate betweenness suggests receiving more than sending, typical of a retail user."
+    },
+    {
+        "id": "1AJcrNprq6v37h1WUdZx9ZnUfN44BHwZki",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Low degree (2) and moderate betweenness suggest limited interactions, typical of a retail user with specific transaction needs."
+    },
+    {
+        "id": "bc1qy0lk6995alw8xfd8fdu23un9c0uxm052z2dj6q",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "High in-degree (10) with no out-degree suggests accumulation of funds, typical of an exchange cold wallet storing assets securely."
+    },
+    {
+        "id": "1Hpv2EyCJfnGXSWBoE1rz8PVR1v5LdMN4o",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Low degree (2) and moderate betweenness suggest limited interactions, typical of a retail user with specific transaction needs."
+    },
+    {
+        "id": "3ERh1ZNbk5ffKoi9LaFuRJTSuyJKhjzzu3",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Balanced in/out-degree (3/5) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "37CmWXbsLPHtcfSTFxAGYnsGNCTHbzhpPA",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Low degree (2) and moderate betweenness suggest limited interactions, typical of a retail user with specific transaction needs."
+    },
+    {
+        "id": "bc1q4hxu6swm2a6kcgyse4ce6g3w8gt7rfy3atay7g",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in/out-degree (8 each) and moderate betweenness suggest a role in aggregating transactions. The diverse set of neighbors indicates interaction with various entities."
+    },
+    {
+        "id": "3FrNV5nzR1aoZkjaYqqBsWWhoRA5ktSJDA",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Higher out-degree (8) than in-degree (2) with moderate betweenness suggests typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "358WFGcWBfy1ZkVZzrxq9MmKsyo1YPw9RR",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Low degree (3) and moderate betweenness suggest limited interactions, typical of a retail user with specific transaction needs."
+    },
+    {
+        "id": "3DRURDZP7vVpnbGzxm6mzjqLsSjtBNZ9EF",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Balanced in/out-degree (5/4) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "1FSNfNyfkXMGKCJxYykVtzKHaLgCzmcVA7",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Higher in-degree (6) than out-degree (3) with moderate betweenness suggests receiving more than sending, typical of a retail user."
+    },
+    {
+        "id": "38wGbQNF3UBpZpsyGYccr1zkNYVLRpZTRi",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Higher out-degree (6) than in-degree (1) with moderate betweenness suggests typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "3NxWgsczrziYdPihYj6LaWzks6kReyywFK",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "High in-degree (13) with no out-degree suggests accumulation of funds, typical of an exchange cold wallet storing assets securely."
+    },
+    {
+        "id": "bc1qmty96hwgnamwqq6varzywtn50esynvl58td9qa",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in/out-degree (7 each) and moderate betweenness suggest a role in aggregating transactions. The diverse set of neighbors indicates interaction with various entities."
+    },
+    {
+        "id": "3QjvDtnnvYGMDy4Sn8hVPixcyc8Zm4CEV3",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "High in-degree (6) with no out-degree suggests accumulation of funds, typical of an exchange cold wallet storing assets securely."
+    },
+    {
+        "id": "bc1qra2u3sz877s72n4krdl2sl4zk3c3ws08gcpa4l",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in/out-degree (7 each) and moderate betweenness suggest a role in aggregating transactions. The diverse set of neighbors indicates interaction with various entities."
+    },
+    {
+        "id": "3Qy2pxx2YCHXnscXgCP3H4dtqwE2oUkWkf",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in/out-degree (7 each) and moderate betweenness suggest a role in aggregating transactions. The diverse set of neighbors indicates interaction with various entities."
+    },
+    {
+        "id": "38ENmTr2AD1avJrmmi9iM7PfS6nZVmuMKf",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Higher out-degree (11) than in-degree (4) with moderate betweenness suggests a central role in distributing transactions, indicative of a service aggregator."
+    },
+    {
+        "id": "14dPm3FqtGUwbETruNRfEBP1Kgt8tQyhxX",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Balanced in/out-degree (4/2) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "3JLhVshjADt9xxgKKUg8rRqV796fcPsznB",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Balanced in/out-degree (2/3) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "1EkhBSWCiYFrH4PJGTkbsAG7N84p17eWzp",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Balanced in/out-degree (5/2) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "171sMpP2XYtFJBx5bvoLq7BKCtN6tqVQEN",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Balanced in/out-degree (4/1) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "3B6kLPzv3NyAjCex6Q1aHf7CBHtxCnyqs7",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Higher out-degree (4) than in-degree (1) with moderate betweenness suggests typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "1J3763hAKXsTD4PEF8S3Za2UysLhcNsE1e",
+        "role": "exchange cold wallet",
+        "confidence": 0.7,
+        "rationale": "High in-degree (3) with no out-degree suggests accumulation of funds, typical of an exchange cold wallet storing assets securely."
+    },
+    {
+        "id": "bc1qr4xx9kwf6uur5yhkravc2qrk8hg0dcehe4zuqk",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in/out-degree (3/2) and moderate betweenness suggest a role in aggregating transactions. The diverse set of neighbors indicates interaction with various entities."
+    },
+    {
+        "id": "1N52wHoVR79PMDishab2XmRHsbekCdGquK",
+        "role": "service aggregator",
+        "confidence": 0.8,
+        "rationale": "High degree (23) and moderate betweenness suggest a central role in transaction aggregation. The diverse set of neighbors supports the aggregator role."
+    },
+    {
+        "id": "33KfBwDccaLwoQ5zBQ3s8iAEgVfC1h4DSF",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Balanced in/out-degree (3/4) and moderate betweenness suggest typical user behavior, interacting with a few entities."
+    },
+    {
+        "id": "35XaJevGFZ6nirxoGvJwpuAouBZFtLhvpm",
+        "role": "exchange cold wallet",
+        "confidence": 0.7,
+        "rationale": "High in-degree (6) with no out-degree suggests accumulation of funds, typical of an exchange cold wallet storing assets securely."
+    },
+    {
+        "id": "35VzSBxDVy8rQZDhXuewNQKKDrM12rc6fC",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Higher out-degree (6) than in-degree (1) with moderate betweenness suggests typical user behavior, interacting with a few entities."
+    }
+]
+```

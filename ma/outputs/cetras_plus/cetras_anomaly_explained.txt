@@ -1,0 +1,5 @@
+- Multiple nodes (e.g., bc1qe72zx487hq0u2l57n4spt6r0xxs6whyj60lkhl, bc1qasj2q0rdr663htkhun3wal97ptfgku2vxsvcl9) exhibit star-shaped outflow patterns to many addresses, indicating possible payout batching by exchanges or mixers distributing funds to users or downstream wallets.
+
+- Several high betweenness “bridge” nodes receive many incoming edges but have few or no outgoing edges (e.g., bc1qsg03rhpftdd8e5e0rn0c9ch0m43dkw5kequcde), consistent with many-to-one consolidation patterns typical of exchanges aggregating deposits or mixers collecting mixed coins.
+
+- The presence of self-loop edges and repetitive transfers among a few addresses (e.g., bc1qhmzw5arsdwnuhvcunrcua876p0c3juk0xsr7wm) suggests peeling chains or internal shuffling, which are common in mixer protocols or exchange hot wallets to obfuscate fund origins and improve privacy.

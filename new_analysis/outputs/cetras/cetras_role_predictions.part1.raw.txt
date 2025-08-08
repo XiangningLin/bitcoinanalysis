@@ -1,0 +1,40 @@
+```json
+[
+    {
+        "id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+        "role": "Centralized Exchange Hot Wallet",
+        "confidence": 0.9,
+        "rationale": "High in-degree (1280) indicates it receives a lot of funds, while a moderate out-degree (523) suggests it disburses funds actively, typical of an exchange hot wallet. Its numerous connections and high betweenness centrality (0.0214) further support this role."
+    },
+    {
+        "id": "1GX28yLjVWux7ws4UQ9FB4MnLH4UKTPK2z",
+        "role": "Retail User",
+        "confidence": 0.8,
+        "rationale": "No incoming transactions and a high out-degree (151) suggest this address is primarily used for outgoing payments, characteristic of a retail user or a wallet managed by a single individual."
+    },
+    {
+        "id": "3FxUA8godrRmxgUaPv71b3XCUxcoCLtUx2",
+        "role": "Retail User",
+        "confidence": 0.8,
+        "rationale": "Similar to the previous case, this address has no incoming transactions and a high out-degree (150), suggesting it is likely used for personal payments or expenditures."
+    },
+    {
+        "id": "3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ",
+        "role": "Mixer/Tumbler",
+        "confidence": 0.7,
+        "rationale": "While it has a moderate in-degree (75) and low out-degree (23), the balance suggests it may be a mixer, processing multiple incoming transactions and sending out fewer, typical of anonymity services."
+    },
+    {
+        "id": "32Mf4hkRXAxhrkY2EjrzVcX8diTPKVEfhA",
+        "role": "Service Aggregator",
+        "confidence": 0.75,
+        "rationale": "Moderate in-degree (64) with a low out-degree (22) indicates it may act as an aggregator, receiving various funds while redistributing less frequently."
+    },
+    {
+        "id": "1KFg1eEHH4HJigNfBaTgq6V1rWykVknTg1",
+        "role": "Mining Pool Payout",
+        "confidence": 0.65,
+        "rationale": "High in-degree (70) and very low out-degree (1) suggest it collects rewards from mining but does not distribute them frequently, indicative of a mining pool payout address."
+    },
+    {
+        "id": "39XpoaixBAbUZzaq7g73

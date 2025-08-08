@@ -1,0 +1,23 @@
+{
+  "method": "CETraS (Centrality-based Transaction Sampling)",
+  "parameters": {
+    "sample_nodes": 10000,
+    "alpha_degree": 0.4,
+    "beta_betweenness": 0.3,
+    "gamma_closeness": 0.3,
+    "expansion_hops": 1,
+    "seed": 7
+  },
+  "source": "2020-10_00.zip",
+  "graph_stats": {
+    "nodes": 10000,
+    "edges": 49803,
+    "density": 0.0004980798079807981,
+    "num_WCC": 1,
+    "num_SCC": 6849,
+    "largest_WCC": 10000,
+    "largest_SCC": 3151,
+    "avg_clustering": 0.10647306842365506,
+    "diameter_estimate": 6
+  }
+}

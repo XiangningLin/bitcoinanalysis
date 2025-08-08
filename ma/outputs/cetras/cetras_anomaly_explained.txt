@@ -1,0 +1,7 @@
+- Multiple nodes with very high in-degree but zero or near-zero out-degree (e.g., bc1qsg03rhpftdd8e5e0rn0c9ch0m43dkw5kequcde) suggest many-to-one consolidation, typical of exchanges aggregating user deposits or preparing for large withdrawals.
+
+- Presence of nodes with high out-degree but low in-degree and self-loop edges (e.g., bc1qhmzw5arsdwnuhvcunrcua876p0c3juk0xsr7wm) indicates star-shaped fan-out patterns, consistent with payout batching or distribution from mixing services.
+
+- Chains of nodes with moderate degrees and repetitive self-transfers (e.g., 36TZYLiYfpW4AU2vrvwNxTEUWez1YB9WHD and 3EX34GnTCYKLrGb7q5nc2obCXwnApvm3kJ) may represent peeling chains, a common mixer withdrawal pattern to obfuscate transaction trails.
+
+These patterns align with October 2020 market trends where mixing services and exchange consolidations were prevalent due to increased regulatory scrutiny and privacy demands.

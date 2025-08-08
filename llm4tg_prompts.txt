@@ -1,0 +1,23 @@
+
+### Prompt 1 — Node Role Classification
+You are given profiles of Bitcoin addresses sampled from a transaction subgraph (October 2020 snapshot). 
+Each profile includes in/out-degree, a few top neighbors, and approximate betweenness centrality.
+Task: For each node, infer its likely role (e.g., centralized exchange hot wallet, exchange cold wallet, mixer/tumbler, merchant gateway, mining pool payout, retail user, service aggregator). 
+Explain your reasoning briefly, citing: degree balance (in vs out), neighbor diversity, and structural position (betweenness). 
+Return a JSON list with fields: id, role, confidence(0-1), rationale(<=80 words).
+
+### Prompt 2 — Anomaly Pattern Explanation
+You will receive a set of “bridge” candidates (high betweenness) and a small induced edge list among top nodes.
+Task: Identify unusual transfer patterns (e.g., star-shaped fan-in/out, many-to-one consolidations, peeling chains). 
+Propose 2–3 hypotheses for what these patterns may indicate (e.g., exchange consolidation, mixer activity, payout batching). 
+Prioritize explanations consistent with October-2020 market context. 
+Return concise bullet points; each hypothesis <=60 words.
+
+### Prompt 3 — Decentralization Snapshot Summary
+Using global stats (nodes, edges, SCC/WCC counts and max sizes, average clustering, diameter estimate) and the top-node roles, assess whether the sampled network suggests centralization or decentralization. 
+Discuss: (i) presence of multiple hubs vs one giant hub, (ii) robustness to node removal (bridges concentration), and (iii) small-world hints (clustering vs path length). 
+Return a 120–180 word executive summary.
+
+### Notes
+- The sample was built by Random Walk with Flying-Back (p=0.3), which can under-sample very sparse regions. 
+- Degree/centrality values are computed on the sampled subgraph, not the full chain, so treat them as indicative.

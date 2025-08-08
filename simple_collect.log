@@ -1,0 +1,34 @@
+/Users/linxiangning/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+======================================================================
+SIMPLE & DIRECT DATA COLLECTION
+======================================================================
+
+📥 Collecting Bitcoin 2025 Data...
+✓ Current block: 917,596
+✓ Collecting last 50 blocks...
+  Block 917546 (1/50)  Block 917547 (2/50)  Block 917548 (3/50)  Block 917549 (4/50)  Block 917550 (5/50)  Block 917551 (6/50)  Block 917552 (7/50)  Block 917553 (8/50)  Block 917554 (9/50)  Block 917555 (10/50)  Block 917556 (11/50)  Block 917557 (12/50)  Block 917558 (13/50)  Block 917559 (14/50)  Block 917560 (15/50)  Block 917561 (16/50)  Block 917562 (17/50)  Block 917563 (18/50)  Block 917564 (19/50)  Block 917565 (20/50)  Block 917566 (21/50)  Block 917567 (22/50)  Block 917568 (23/50)  Block 917569 (24/50)  Block 917570 (25/50)  Block 917571 (26/50)  Block 917572 (27/50)  Block 917573 (28/50)  Block 917574 (29/50)  Block 917575 (30/50)  Block 917576 (31/50)  Block 917577 (32/50)  Block 917578 (33/50)  Block 917579 (34/50)  Block 917580 (35/50)  Block 917581 (36/50)  Block 917582 (37/50)  Block 917583 (38/50)  Block 917584 (39/50)  Block 917585 (40/50)  Block 917586 (41/50)  Block 917587 (42/50)  Block 917588 (43/50)  Block 917589 (44/50)  Block 917590 (45/50)  Block 917591 (46/50)  Block 917592 (47/50)  Block 917593 (48/50)  Block 917594 (49/50)  Block 917595 (50/50)
+✓ Collected 133072 transactions
+✓ Saved: bitcoin_2025_real.csv (133072 txs)
+
+Bitcoin 2025 Statistics:
+  Transactions: 133,072
+  Avg size: 542.5 bytes
+  Avg inputs: 2.78
+  Avg outputs: 2.65
+  Avg fee: 0.000015 BTC
+  Total volume: 253044.93 BTC
+
+📥 Collecting Ethereum 2025 Data...
+⚠️  No Etherscan API key, skipping Ethereum
+❌ Ethereum collection failed (or skipped)
+
+======================================================================
+✅ DATA COLLECTION COMPLETE
+======================================================================
+
+Generated files:
+  ✓ bitcoin_2025_real.csv (133072 transactions)
+
+All data is REAL from blockchain APIs (Oct 2025)
+======================================================================

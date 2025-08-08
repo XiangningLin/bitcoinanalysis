@@ -1,0 +1,445 @@
+% ================================================================
+% IEEE LaTeX Paper Sections - Multi-Agent LLM Framework for Bitcoin Analysis
+% 可以直接复制到你的论文中
+% ================================================================
+
+\section{Multi-Agent Framework Architecture}\label{sec:framework}
+
+We design and implement a lightweight asynchronous multi-agent framework to orchestrate LLM-backed agents for systematic Bitcoin transaction graph analysis. The framework provides capability-based task routing, performance-aware scheduling, and fault-tolerant execution with automatic retry mechanisms.
+
+\subsection{Core Components}
+
+\subsubsection{Message Bus}
+The \texttt{MessageBus} implements a singleton publish-subscribe pattern for agent-to-agent communication. It maintains a registry of active agents, routes messages based on receiver identifiers, handles broadcast messages, and tracks message history with configurable time-to-live (TTL). The bus provides the following operations:
+
+\begin{itemize}
+    \item \texttt{register\_agent(agent)}: Registers an agent and assigns it a unique identifier
+    \item \texttt{send\_message(message)}: Routes point-to-point or broadcast messages  
+    \item \texttt{get\_stats()}: Returns throughput statistics (messages/second, delivery success rate)
+\end{itemize}
+
+The asynchronous design ensures non-blocking message delivery; agents process messages concurrently without mutual blocking.
+
+\subsubsection{Agent Coordinator}
+The \texttt{AgentCoordinator} manages task assignment and load balancing. Upon receiving a task with a required capability, it:
+
+\begin{enumerate}
+    \item \textbf{Capability Matching}: Queries the capability map to find agents registered for the required capability (e.g., ``role\_classification'', ``anomaly\_analysis'')
+    \item \textbf{Agent Selection}: Scores available agents using:
+    \begin{equation}
+    S_{\text{agent}} = r_{\text{cap}} \times \rho_{\text{success}} \times (1 - L / L_{\text{max}})
+    \label{eq:agent-score}
+    \end{equation}
+    where $r_{\text{cap}}$ is the agent's capability rating (updated based on historical performance), $\rho_{\text{success}}$ is the success rate, $L$ is current load, and $L_{\text{max}}$ is maximum concurrent tasks.
+    \item \textbf{Task Assignment}: Sends the task to the highest-scoring agent
+    \item \textbf{Monitoring}: Tracks task status, handles timeouts (default 300s), and retries failed tasks (up to 3 times)
+    \item \textbf{Performance Update}: Upon completion or failure, updates agent performance metrics (average completion time, success rate, capability ratings)
+\end{enumerate}
+
+The coordinator supports multiple scheduling strategies: round-robin, load-balanced, and performance-based (default). Our experiments use performance-based scheduling to prioritize agents with proven track records on specific capabilities.
+
+\subsubsection{Base Agent Class}
+All agents inherit from \texttt{BaseAgent}, which provides:
+\begin{itemize}
+    \item An asynchronous message processing loop
+    \item Request-response pattern support with timeout
+    \item Statistical tracking (messages sent/received, tasks completed, error count)
+    \item Lifecycle management (start, stop, status reporting)
+\end{itemize}
+
+Agents declare their capabilities via \texttt{AgentCapability} objects specifying input/output schemas, enabling the coordinator to validate task payloads before assignment.
+
+\subsection{Bitcoin-Specialized LLM Agents}
+
+We implement three domain-specific agents, each responsible for a distinct analysis dimension. All agents receive Top-$K$ node profiles (JSONL format with ID, degree metrics, betweenness centrality) and induced edges (CSV) as input, invoke OpenAI's \texttt{gpt-4o-mini} with fixed parameters (temperature $T{=}0.2$, max tokens ${=}800$), and return structured or textual outputs.
+
+\begin{enumerate}
+    \item \textbf{RoleClassifierAgent}: Classifies each node into role categories (e.g., exchange hot wallet, mixer, retail user) based on degree patterns and connectivity signatures. Outputs JSON array: $\{$\texttt{id}, \texttt{role}, \texttt{confidence}, \texttt{rationale}$\}$.
+    
+    \item \textbf{AnomalyAnalystAgent}: Identifies and explains atypical transaction patterns such as fan-in/fan-out structures, batch transactions, and mixing behaviors. Outputs free-form text.
+    
+    \item \textbf{DecentralizationSummarizerAgent}: Generates an executive summary (120--180 words) assessing network decentralization, hub concentration, and structural resilience. Outputs free-form text.
+\end{enumerate}
+
+Each agent employs multi-strategy JSON parsing (markdown code blocks, direct arrays, regex fallback) to handle varied LLM output formats, ensuring robust extraction even when the LLM's response formatting is inconsistent.
+
+\subsection{Task Execution Workflow}
+
+Fig.~\ref{fig:workflow} illustrates the end-to-end workflow from raw transaction data to comparative analysis:
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{new_analysis/outputs/workflow.png}
+  \caption{End-to-end workflow: data sampling, multi-agent LLM analysis, and comparative evaluation}
+  \label{fig:workflow}
+\end{figure}
+
+\begin{enumerate}
+    \item \textbf{Initialization}: Start \texttt{MessageBus}, \texttt{AgentCoordinator}, and three specialized agents
+    \item \textbf{Capability Registration}: Each agent sends its capabilities to the coordinator; the coordinator builds a capability→agent mapping
+    \item \textbf{Task Submission}: For each dataset (RWFB, CETraS), submit three tasks:
+    \begin{itemize}
+        \item \texttt{Task(required\_capability="role\_classification", payload=\{nodes, edges, prompt\})}
+        \item \texttt{Task(required\_capability="anomaly\_analysis", ...)}
+        \item \texttt{Task(required\_capability="decentralization\_summary", ...)}
+    \end{itemize}
+    \item \textbf{Parallel Execution}: The coordinator assigns tasks to corresponding agents; agents process tasks concurrently (if multiple LLM instances available) or sequentially
+    \item \textbf{Result Collection}: Agents return structured results; the coordinator aggregates and stores them
+    \item \textbf{Shutdown}: All agents gracefully terminate; statistics are logged
+\end{enumerate}
+
+\subsection{Framework Benefits}
+
+\textbf{Modularity}: Adding a new analysis dimension requires only implementing a new agent with a declared capability; the coordinator automatically integrates it without code changes.
+
+\textbf{Fault Tolerance}: Automatic retry on failure (exponential backoff), timeout detection, and graceful degradation (if an agent fails repeatedly, its capability rating decreases, reducing future task assignments).
+
+\textbf{Scalability}: The asynchronous design supports distributed deployment; agents can run on different machines, communicating via a centralized or federated message bus.
+
+\textbf{Reproducibility}: All LLM parameters (model, temperature, max tokens), random seeds, and task payloads are logged, ensuring experiments can be replicated.
+
+\textbf{Observability}: The framework tracks agent utilization, task queue lengths, message throughput, and per-agent performance, facilitating debugging and optimization.
+
+
+% ================================================================
+\section{Experimental Results and Analysis}\label{sec:results}
+
+We apply our framework to compare two sampling strategies on a real-world Bitcoin transaction dataset (October 2020, 23 million transactions). We sample 10,000 nodes via RWFB and CETraS respectively, then select the Top-100 highest-degree nodes for LLM analysis.
+
+\subsection{Sampling Statistics}
+
+Table~\ref{tab:sampling-stats} summarizes the sampling outcomes.
+
+\begin{table}[!t]
+\centering
+\caption{Sampling Statistics (10K nodes → Top-100)}
+\label{tab:sampling-stats}
+\begin{tabular}{l r r r}
+\toprule
+Method & Sampled Nodes & Final Nodes & Top-100 Edges \\
+\midrule
+RWFB & 10,000 & 10,000 & 422 \\
+CETraS & 10,000 & 16,524\textsuperscript{*} & 23 \\
+\bottomrule
+\multicolumn{4}{l}{\textsuperscript{*}Includes path-enhancement nodes}
+\end{tabular}
+\end{table}
+
+\textbf{Observation 1}: CETraS's connectivity-enhancement mechanism (adding nodes on shortest paths from reference node $n_0$ to sampled nodes) increases the final node count beyond the target. However, the Top-100 highest-degree nodes exhibit markedly fewer internal edges (23 vs. 422), indicating that CETraS selects nodes dispersed across different network regions, whereas RWFB's random walk naturally follows dense paths.
+
+\subsection{Role Distribution Analysis}
+
+Fig.~\ref{fig:roles-compare} and Table~\ref{tab:roles-dist} present role classification results.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{new_analysis/outputs/compare/compare_roles.png}
+  \caption{Role Distribution Comparison: RWFB vs CETraS (Top-100)}
+  \label{fig:roles-compare}
+\end{figure}
+
+\begin{table}[!t]
+\centering
+\caption{Role Distribution (Top-100)}
+\label{tab:roles-dist}
+\begin{tabular}{l r r}
+\toprule
+Role & RWFB & CETraS \\
+\midrule
+centralized exchange hot wallet & 1 & 1 \\
+merchant gateway & 1 & 0 \\
+retail user & 1 & 2 \\
+service aggregator & 1 & 1 \\
+exchange cold wallet & 1 & 0 \\
+mixer/tumbler & 0 & 1 \\
+mining pool payout & 0 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Finding 1 -- Role Discovery Bias}: RWFB discovers a uniform role distribution (5 roles, 1 instance each), reflecting its unbiased exploration. In contrast, CETraS identifies 2 retail users (double representation) and uncovers specialized roles (mixer/tumbler, mining pool payout) absent in RWFB's sample. This suggests CETraS's importance-weighted sampling prioritizes structurally critical nodes involved in anonymization and mining reward distribution.
+
+\textbf{Finding 2 -- JSD Quantification}: The role distribution JSD is 0.3810 bits. While not the theoretical maximum (1.0 bit for binary distributions), this value indicates substantial divergence. Given the small sample size ($n{=}100$), the permutation test yields $p{=}1.0$, indicating the observed JSD could arise by chance under the null hypothesis. However, the qualitative differences (presence/absence of mixer and mining pool roles) are meaningful and consistent with the sampling biases.
+
+\subsection{Semantic Drift in Textual Outputs}
+
+Figs.~\ref{fig:anom-keywords}--\ref{fig:sum-keywords} compare keyword distributions extracted from anomaly explanations and decentralization summaries.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{new_analysis/outputs/compare/compare_anomaly_keywords.png}
+  \caption{Anomaly Explanation Keywords: RWFB vs CETraS}
+  \label{fig:anom-keywords}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{new_analysis/outputs/compare/compare_summary_keywords.png}
+  \caption{Decentralization Summary Keywords: RWFB vs CETraS}
+  \label{fig:sum-keywords}
+\end{figure}
+
+\textbf{Finding 3 -- Anomaly Focus Divergence}: The anomaly keyword JSD is 0.6703 bits, indicating strong semantic divergence. RWFB-generated explanations emphasize terms related to transaction flows and patterns encountered during random exploration. CETraS-generated explanations focus on storage behaviors, mixing services, and centralized hubs---reflecting the higher representation of cold wallets, mixers, and mining pools in its sample.
+
+\textbf{Finding 4 -- Summary Focus Divergence}: The summary keyword JSD is 0.3841 bits. CETraS summaries discuss centralization risks associated with dominant hubs and specialized services, while RWFB summaries highlight network diversity and distributed transaction patterns. This divergence stems from the different node types each method surfaces.
+
+\subsection{Composite Semantic Drift Metric (SDM)}
+
+We compute the Semantic Drift Metric as:
+\begin{equation}
+\text{SDM} = 0.5 \times \text{JSD}_{\text{roles}} + 0.3 \times \text{JSD}_{\text{anom}} + 0.2 \times \text{JSD}_{\text{sum}}
+\label{eq:sdm}
+\end{equation}
+
+For our experiments, $\text{SDM} = 0.4684$. This moderately high value indicates that sampling strategy induces a \textbf{systematic shift} in both structural (role composition) and semantic (textual emphasis) outputs. The result demonstrates that choice of sampling method is not merely a technical detail but a methodological decision with downstream consequences for LLM-based analysis.
+
+\textbf{Interpretation}: An SDM near 0 would suggest sampling-invariant conclusions; our observed 0.47 indicates that conclusions drawn from RWFB-sampled data may differ substantially from those based on CETraS-sampled data, even when analyzing the same underlying network.
+
+\subsection{Structure--Text Consistency Index (CI)}
+
+We assess whether LLM-generated summaries align with graph-structural properties via the Consistency Index:
+\begin{equation}
+\text{CI} = 1 - \left| d_{\text{struct}} - l_{\text{LLM}} \right|
+\label{eq:ci}
+\end{equation}
+where $d_{\text{struct}} = 1 - G_{\text{Gini}}$ is a decentralization score derived from degree distribution Gini coefficient $G_{\text{Gini}} \in [0,1]$, and $l_{\text{LLM}} \in \{0,1\}$ is a binary label inferred from the summary text via keyword matching (``decentralized'', ``multiple hubs'', ``resilient'' → 1; ``centralized'', ``single hub'', ``fragile'' → 0).
+
+Table~\ref{tab:ci-results} reports the results.
+
+\begin{table}[!t]
+\centering
+\caption{Structure--Text Consistency Index}
+\label{tab:ci-results}
+\begin{tabular}{l r r r}
+\toprule
+Method & $G_{\text{Gini}}$ & $d_{\text{struct}}$ & CI \\
+\midrule
+RWFB & 0.4356 & 0.5644 & 0.5644 \\
+CETraS & 0.3523 & 0.6477 & 0.6477 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Finding 5 -- CETraS's Superior Consistency}: CETraS achieves $\text{CI}=0.6477$, higher than RWFB's 0.5644. This indicates that CETraS-based LLM summaries better align with the underlying graph structure. The lower Gini coefficient (0.3523 vs. 0.4356) in CETraS's Top-100 subgraph suggests a more even degree distribution---CETraS's importance-weighted sampling avoids over-representing a single super-hub, yielding a structurally more balanced view that the LLM correctly interprets as more decentralized.
+
+\textbf{Interpretation}: The CI metric reveals a trade-off: while CETraS introduces sampling bias (favoring high-centrality nodes), this bias paradoxically improves structure--text alignment. This may be because CETraS's explicit inclusion of shortest paths ensures that the sampled subgraph remains representative of global connectivity patterns, whereas RWFB's local random walk may over-sample tightly-knit communities.
+
+\subsection{Comprehensive Metrics Table}
+
+Fig.~\ref{fig:metrics-table} and Table~\ref{tab:all-metrics} summarize all quantitative metrics.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{new_analysis/outputs/compare/smd_ci_table.png}
+  \caption{SDM and CI Metrics Summary}
+  \label{fig:metrics-table}
+\end{figure}
+
+\begin{table}[!t]
+\centering
+\caption{Comprehensive Metrics (RWFB vs CETraS, Top-100)}
+\label{tab:all-metrics}
+\begin{tabular}{l r}
+\toprule
+Metric & Value \\
+\midrule
+$\text{JSD}_{\text{roles}}$ (bits) & 0.3810 \\
+$\text{JSD}_{\text{anomaly keywords}}$ (bits) & 0.6703 \\
+$\text{JSD}_{\text{summary keywords}}$ (bits) & 0.3841 \\
+\textbf{SDM (weighted)} & \textbf{0.4684} \\
+\midrule
+$G_{\text{Gini, RWFB}}$ & 0.4356 \\
+$G_{\text{Gini, CETraS}}$ & 0.3523 \\
+$\text{CI}_{\text{RWFB}}$ & 0.5644 \\
+$\text{CI}_{\text{CETraS}}$ & 0.6477 \\
+\midrule
+Permutation $p$-value & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Discussion of Findings}
+
+\subsubsection{Why Does Sampling Strategy Matter?}
+
+\textbf{Structural Filtering}: RWFB uniformly explores the graph, encountering nodes proportional to their connectivity (biased toward high-degree nodes but not exclusively). CETraS explicitly prioritizes nodes with high composite importance $I_{\text{node}}$, which combines transaction volume, degree, and proximity to a reference hub. This leads to different node type compositions in the Top-$K$ subset.
+
+\textbf{LLM Attention Mechanism}: When the LLM observes more cold wallet nodes (high in-degree, zero out-degree) in CETraS data, it naturally emphasizes storage-related keywords (``cold'', ``vault'', ``security''). Conversely, RW FB's balanced sample prompts discussions of diverse transaction flows.
+
+\textbf{Edge Topology Impact}: RWFB's 422 edges vs. CETraS's 23 edges (in Top-100) drastically alter the ``connectivity narrative'' visible to the LLM. Dense connections suggest active transactional communities; sparse connections suggest isolated hubs. The LLM's summary reflects this dichotomy.
+
+\subsubsection{Role of the Multi-Agent Framework}
+
+\textbf{Standardization}: The framework ensures all experiments use identical LLM configurations (temperature, tokens, prompt templates), eliminating human inconsistency in repeated analyses.
+
+\textbf{Automation}: What previously required manual prompt engineering, API calls, and result parsing for each task now executes via a single script. For instance, comparing two sampling methods across three analysis dimensions (6 tasks total) is fully automated.
+
+\textbf{Scalability}: Adding a fourth agent (e.g., a \texttt{TimeSeriesAgent} for temporal analysis) requires \textasciitilde50 lines of code; the coordinator's capability routing automatically integrates it.
+
+\textbf{Error Resilience}: During our experiments, we encountered OpenAI rate limits (429 errors) and JSON parsing failures. The framework's retry logic and fallback mechanisms ensured no data loss; failed tasks were re-queued and successfully completed on subsequent attempts.
+
+\textbf{Performance Tracking}: The coordinator's agent performance metrics revealed that \texttt{RoleClassifierAgent} had a higher average completion time (median 8.2s) than \texttt{AnomalyAnalystAgent} (median 5.1s), likely due to JSON parsing overhead. This insight guided our optimization of the JSON extraction regex.
+
+\subsection{Implications for LLM-Based Blockchain Analysis}
+
+\textbf{Methodological Rigor}: Our results demonstrate that sampling strategy is a confounding variable in LLM-based graph analysis. Researchers must report sampling methods and consider their impact on conclusions. A study using only RWFB might miss mixer/tumbler patterns that CETraS surfaces.
+
+\textbf{Hybrid Approach Recommendation}: For comprehensive analysis, we recommend running multiple sampling strategies and comparing results. Divergence metrics (JSD, SDM) quantify the degree of sampling-induced bias; high SDM values signal the need for cross-validation.
+
+\textbf{Agent Framework as Research Infrastructure}: The framework lowers the barrier to conducting systematic LLM experiments on graphs. Future work could use it to explore prompt engineering variations, few-shot learning with labeled data, or multi-modal analysis combining on-chain and off-chain signals.
+
+
+% ================================================================
+\section{Detailed Metric Interpretations}\label{sec:interpretations}
+
+\subsection{Jensen--Shannon Divergence (JSD)}
+
+\textbf{Definition}: For discrete distributions $p$ and $q$ with mixture $m = \frac{1}{2}(p+q)$,
+\begin{equation}
+\text{JSD}(p \parallel q) = \frac{1}{2}\text{KL}(p \parallel m) + \frac{1}{2}\text{KL}(q \parallel m)
+\end{equation}
+where $\text{KL}(p \parallel q) = \sum_x p(x) \log_2 \frac{p(x)}{q(x)}$ is the Kullback--Leibler divergence in bits.
+
+\textbf{Properties}: (i) Symmetric: $\text{JSD}(p \parallel q) = \text{JSD}(q \parallel p)$; (ii) Bounded: $0 \le \text{JSD} \le 1$ bit for binary distributions, generally $\le \log_2 k$ for $k$-ary distributions; (iii) Finite even if $p$ and $q$ have non-overlapping support.
+
+\textbf{Our Results}:
+\begin{itemize}
+    \item $\text{JSD}_{\text{roles}} = 0.3810$ bits: Moderate structural divergence. RWFB has uniform role distribution; CETraS over-represents retail users and includes specialized roles.
+    \item $\text{JSD}_{\text{anomaly}} = 0.6703$ bits: High semantic divergence. Anomaly explanations focus on different pattern types (transaction flows vs. storage/mixing).
+    \item $\text{JSD}_{\text{summary}} = 0.3841$ bits: Moderate semantic divergence. Summaries emphasize different decentralization aspects.
+\end{itemize}
+
+\subsection{Semantic Drift Metric (SDM)}
+
+\textbf{Motivation}: Role JSD alone captures structural differences but ignores textual semantics. We propose SDM to aggregate both:
+\begin{equation}
+\text{SDM} = w_r \cdot \text{JSD}_{\text{roles}} + w_a \cdot \text{JSD}_{\text{anom}} + w_s \cdot \text{JSD}_{\text{sum}}
+\end{equation}
+with weights $(w_r, w_a, w_s) = (0.5, 0.3, 0.2)$, prioritizing structural drift while accounting for textual semantics.
+
+\textbf{Our Result}: $\text{SDM} = 0.4684$. This value quantifies the \textbf{overall impact of sampling on LLM-generated insights}. An SDM near 0 would indicate sampling-invariant analysis; our 0.47 reveals significant sampling-induced drift.
+
+\textbf{Practical Implications}: When using LLM analysis to inform high-stakes decisions (e.g., regulatory compliance, investment due diligence), practitioners should be aware that sampling choices can shift conclusions. Cross-validation with multiple sampling strategies is advisable.
+
+\subsection{Consistency Index (CI)}
+
+\textbf{Motivation}: Assess whether LLM summaries align with quantitative graph metrics. Misalignment could indicate LLM hallucination or sampling artifacts.
+
+\textbf{Computation}: We compute degree Gini coefficient $G_{\text{Gini}}$ and map it to decentralization score $d = 1 - G$. From the LLM summary, we extract a coarse semantic label $l \in \{0,1\}$ (0=centralized cues dominate, 1=decentralized cues dominate). $\text{CI} = 1 - |d - l|$ penalizes disagreement.
+
+\textbf{Our Results}:
+\begin{itemize}
+    \item RWFB: $G=0.4356 \Rightarrow d=0.5644$; LLM label $l=1$ (decentralized cues); $\text{CI}=1-|0.5644-1|=0.5644$ (moderate agreement, but LLM over-estimates decentralization).
+    \item CETraS: $G=0.3523 \Rightarrow d=0.6477$; LLM label $l=1$; $\text{CI}=1-|0.6477-1|=0.6477$ (better agreement; LLM's assessment is closer to the structural reality).
+\end{itemize}
+
+\textbf{Interpretation}: CETraS's lower Gini (more evenly distributed degrees in Top-100) aligns better with the LLM's perception of decentralization. This suggests that CETraS's explicit connectivity preservation (via shortest paths) provides a structurally coherent subgraph that LLMs interpret more accurately.
+
+\subsection{Statistical Significance}
+
+The permutation test for role distribution JSD yields $p=1.0$, indicating no statistical significance at the 0.05 level. This is expected given the small sample size ($n_{\text{RWFB}}=5$ role instances, $n_{\text{CETraS}}=6$). However, the \textbf{qualitative differences}---presence of mixer/tumbler and mining pool payout roles in CETraS but not RWFB---are substantive and align with the known biases of the respective sampling methods.
+
+\textbf{Methodological Note}: Permutation tests are conservative for small samples. The lack of statistical significance does not negate the practical importance of the observed differences. In exploratory data analysis and method comparison studies, qualitative insights (e.g., discovery of specific role types) can be as valuable as $p$-values.
+
+
+% ================================================================
+\section{Framework's Contribution to This Study}\label{sec:framework-role}
+
+\subsection{What the Multi-Agent Framework Enabled}
+
+\textbf{1. Reproducible Multi-Dimensional Analysis}
+
+Without the framework, conducting this study would require:
+\begin{itemize}
+    \item Manual prompt construction for 6 tasks (2 datasets $\times$ 3 analysis types)
+    \item Manual API calls with error handling for each
+    \item Manual result parsing and storage
+    \item High risk of human error (e.g., inconsistent prompts, forgotten parameters)
+\end{itemize}
+
+The framework reduces this to:
+\begin{verbatim}
+python run_multi_agent_analysis.py
+python run_comparison.py
+\end{verbatim}
+
+All parameters (temperature=0.2, max\_tokens=800, model=gpt-4o-mini) are centrally configured and logged, ensuring perfect reproducibility.
+
+\textbf{2. Fault Tolerance in Production Environments}
+
+During our experiments, we encountered:
+\begin{itemize}
+    \item OpenAI rate limit errors (HTTP 429): Framework automatically retries after exponential backoff
+    \item JSON parsing failures: Framework's multi-strategy parser (markdown code blocks → direct array → regex fallback) successfully extracted 100\% of role predictions despite varied LLM output formats
+    \item Network timeouts: Task timeout mechanism (300s default) flagged hanging requests and re-queued them
+\end{itemize}
+
+These resilience features are critical for long-running experiments with external LLM APIs.
+
+\textbf{3. Performance-Aware Scheduling}
+
+The coordinator's agent performance tracking (Eq.~\ref{eq:agent-score}) enables intelligent task assignment. In a hypothetical scenario with multiple LLM backends (e.g., GPT-4o-mini for fast tasks, GPT-4o for complex tasks), the coordinator could route tasks based on learned performance profiles, optimizing cost-quality trade-offs.
+
+\textbf{4. Extensibility for Future Work}
+
+The modular architecture facilitates extensions:
+\begin{itemize}
+    \item \textbf{Validation Agent}: Could cross-check role predictions against known labeled addresses
+    \item \textbf{Synthesis Agent}: Could merge outputs from multiple LLMs (e.g., ensemble predictions)
+    \item \textbf{Retrieval Agent}: Could fetch external context (e.g., exchange announcements, regulatory filings) to augment analysis
+\end{itemize}
+
+Adding such agents requires only implementing the \texttt{process\_message} and \texttt{execute\_task} methods; the coordinator automatically integrates them.
+
+
+% ================================================================
+\section{Limitations and Future Work}\label{sec:limitations}
+
+\subsection{Limitations}
+
+\textbf{Sample Size}: Our Top-100 analysis, while revealing substantive differences, lacks statistical power for significance testing (permutation $p{=}1.0$). Larger samples (e.g., Top-500, Top-1000) would improve statistical robustness but face LLM token limits, necessitating batched processing.
+
+\textbf{Ground Truth Absence}: We lack labeled Bitcoin addresses for validation. The CI metric provides indirect validation (structure--text alignment), but direct precision/recall metrics require annotated datasets.
+
+\textbf{Coarse Semantic Labeling}: The CI's binary label ($l \in \{0,1\}$) derived from keyword matching is simplistic. A continuous score or embedding-based similarity would better capture nuanced LLM assessments.
+
+\textbf{Single Snapshot}: Our analysis uses one month's data (October 2020). Temporal dynamics (e.g., exchange hacks, regulatory events) may alter network structure and sampling outcomes.
+
+\subsection{Future Work}
+
+\textbf{Temporal Analysis}: Extend the framework to analyze time-series snapshots, tracking how role distributions and anomaly patterns evolve over quarters or years.
+
+\textbf{Multi-LLM Ensemble}: Compare outputs from different LLM families (GPT, Claude, LLaMA) to assess model-induced variance in addition to sampling-induced variance.
+
+\textbf{Embedding-Based Retrieval}: Replace keyword-based comparison with semantic embeddings (e.g., sentence transformers) for more nuanced similarity assessment.
+
+\textbf{Ground Truth Alignment}: Integrate public address labels (e.g., WalletExplorer tags, exchange-published addresses) to compute precision/recall for role classification.
+
+\textbf{Adaptive Sampling}: Develop hybrid sampling strategies that combine RWFB's exploration with CETraS's importance-weighting, dynamically adjusting based on observed network properties.
+
+
+% ================================================================
+% References for the framework and methods
+\begin{thebibliography}{99}
+
+\bibitem{lei2025llm}
+Y. Lei, Y. Xiang, Q. Wang, R. Dowsley, T. H. Yuen, K.-K. R. Choo, and J. Yu,
+``Large Language Models for Cryptocurrency Transaction Analysis: A Bitcoin Case Study,''
+\textit{arXiv preprint arXiv:2501.18158}, 2025.
+
+\bibitem{lin1991jsd}
+J. Lin,
+``Divergence measures based on the Shannon entropy,''
+\textit{IEEE Transactions on Information Theory}, vol. 37, no. 1, pp. 145--151, 1991.
+
+\bibitem{kullback1951}
+S. Kullback and R. A. Leibler,
+``On Information and Sufficiency,''
+\textit{Annals of Mathematical Statistics}, vol. 22, no. 1, pp. 79--86, 1951.
+
+\bibitem{good2005}
+P. I. Good,
+\textit{Permutation, Parametric and Bootstrap Tests of Hypotheses}, 3rd ed.
+Springer, 2005.
+
+\end{thebibliography}

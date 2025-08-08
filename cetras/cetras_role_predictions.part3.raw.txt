@@ -1,0 +1,124 @@
+```json
+[
+    {
+        "id": "3GjaLBmJZP4B1kmCNpgudHE9PfT9cCVKGa",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "High in-degree (16) and zero out-degree suggest accumulation of funds, typical of cold wallets. Low betweenness (0.0078) indicates limited interaction with the broader network, consistent with a storage role."
+    },
+    {
+        "id": "bc1qz204mwjsc3jqrfuvgfkkwfzt9ltlvrk479hcqf",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Balanced in-degree (9) and out-degree (7) with moderate betweenness (0.0077) suggest a role in consolidating and redistributing funds, typical of service aggregators."
+    },
+    {
+        "id": "bc1qra2u3sz877s72n4krdl2sl4zk3c3ws08gcpa4l",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Moderate in-degree (5) and out-degree (7) with moderate betweenness (0.0078) indicate a role in consolidating and redistributing funds, consistent with service aggregators."
+    },
+    {
+        "id": "3CBLsJQR8RR94typBYATqrNg2FrPx4LnRK",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (1) and moderate out-degree (6) with slightly higher betweenness (0.0084) suggest personal spending behavior, typical of retail users."
+    },
+    {
+        "id": "114uW6KKje5yVmxfEda14TjvxHKkFDXbuS",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (2) and out-degree (1) with slightly higher betweenness (0.0084) suggest limited transactions, typical of retail users."
+    },
+    {
+        "id": "3L5HDmsJk6cATqUfH9xnDF1qkWpoAoDdgy",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "High in-degree (11) and zero out-degree suggest accumulation of funds, typical of cold wallets. Low betweenness (0.0075) indicates limited interaction with the broader network."
+    },
+    {
+        "id": "38vqm3gBTe31FXEs5ZSKe45sMzz7kCZeE2",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Low in-degree (1) and high out-degree (7) with moderate betweenness (0.0076) suggest a role in redistributing funds, consistent with service aggregators."
+    },
+    {
+        "id": "1EGVxAATp4VTV5GjihHoDwHTtJ2rqwPKeV",
+        "role": "centralized exchange hot wallet",
+        "confidence": 0.9,
+        "rationale": "Very high in-degree (51) and moderate out-degree (4) with lower betweenness (0.0055) suggest active transaction handling, typical of exchange hot wallets."
+    },
+    {
+        "id": "1ALjCmKqewgdDUdBcimex9pyEsiSXYF2U2",
+        "role": "retail user",
+        "confidence": 0.5,
+        "rationale": "Low in-degree (1) and out-degree (1) with moderate betweenness (0.0079) suggest limited transactions, typical of retail users."
+    },
+    {
+        "id": "3HGLvYdNyMdSxZGN5vcRCVyE41HvH39AJU",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Moderate in-degree (3) and high out-degree (15) with moderate betweenness (0.0069) suggest a role in redistributing funds, consistent with service aggregators."
+    },
+    {
+        "id": "1NLuCcN1wqJu9UVa2r8BXTAwXsEmRQnawc",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (3) and out-degree (2) with moderate betweenness (0.0076) suggest limited transactions, typical of retail users."
+    },
+    {
+        "id": "12xjTvg1aqK9Jc46N4cxTLiKnCWnDwD4S9",
+        "role": "exchange cold wallet",
+        "confidence": 0.8,
+        "rationale": "High in-degree (12) and zero out-degree suggest accumulation of funds, typical of cold wallets. Low betweenness (0.0073) indicates limited interaction with the broader network."
+    },
+    {
+        "id": "37g6Aie7hZucbcvomA3CSuPLeCPVbfDyCh",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (1) and high out-degree (7) with moderate betweenness (0.0073) suggest personal spending behavior, typical of retail users."
+    },
+    {
+        "id": "bc1qwqdg6squsna38e46795at95yu9atm8azzmyvckulcc7kytlcckxswvvzej",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Moderate in-degree (6) and high out-degree (13) with moderate betweenness (0.0068) suggest a role in redistributing funds, consistent with service aggregators."
+    },
+    {
+        "id": "1DmByGiDUysf8oAEjy4h1Ud1TdX7XBMQCQ",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (2) and out-degree (2) with moderate betweenness (0.0074) suggest limited transactions, typical of retail users."
+    },
+    {
+        "id": "39Ppw7KMyCPkpxswAF1EuBqTGCPBENS2N3",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Moderate in-degree (4) and high out-degree (16) with moderate betweenness (0.0068) suggest a role in redistributing funds, consistent with service aggregators."
+    },
+    {
+        "id": "3Mvq4PqraNdFWTTwMYt3s3J2a6piCuzFip",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (3) and out-degree (2) with moderate betweenness (0.0074) suggest limited transactions, typical of retail users."
+    },
+    {
+        "id": "1XkcyxJcNZfbQtom1VQJ1rBzpmmQuFJTk",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Moderate in-degree (9) and low out-degree (2) with moderate betweenness (0.0072) suggest a role in consolidating and redistributing funds, consistent with service aggregators."
+    },
+    {
+        "id": "3Q7AQMray5VMrBfEFTxJysdyBsEXQA8ZfX",
+        "role": "retail user",
+        "confidence": 0.6,
+        "rationale": "Low in-degree (1) and out-degree (4) with moderate betweenness (0.0074) suggest limited transactions, typical of retail users."
+    },
+    {
+        "id": "3FK1QA4Jmj7Twh7RCdw9wZk1nGccKap3WB",
+        "role": "service aggregator",
+        "confidence": 0.7,
+        "rationale": "Moderate in-degree (8) and out-degree (7) with moderate betweenness (0.0069) suggest a role in consolidating and redistributing funds, consistent with service aggregators."
+    }
+]
+```

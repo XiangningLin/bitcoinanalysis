@@ -1,0 +1,14 @@
+/Users/linxiangning/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+======================================================================
+QUICK DATA COLLECTION (Smaller Samples for Fast Results)
+======================================================================
+
+
+======================================================================
+Step 1: Bitcoin 2025 Sample (100 blocks)
+======================================================================
+Traceback (most recent call last):
+  File "/Users/linxiangning/Desktop/000000ieeeprojects/bitcoinanalysis/quick_data_collection.py", line 23, in <module>
+    from download_2025_bitcoin_data import download_bitcoin_transactions, get_latest_block_height
+ImportError: cannot import name 'download_bitcoin_transactions' from 'download_2025_bitcoin_data' (/Users/linxiangning/Desktop/000000ieeeprojects/bitcoinanalysis/download_2025_bitcoin_data.py)

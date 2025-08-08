@@ -1,0 +1,5 @@
+- Multiple nodes (e.g., bc1qasj2q0rdr663..., bc1qhmzw5arsdwnu...) show star-shaped fan-out patterns with many edges pointing outward, indicating likely payout batching by exchanges or services distributing funds to many recipients.
+
+- Several nodes have high in-degree but zero out-degree (e.g., bc1qsg03rhpftdd8..., bc1qdwgvqdgezez2...), suggesting many-to-one consolidation of funds, typical of exchanges or mixers aggregating user deposits.
+
+- Presence of self-loop edges and repeated transfers among high betweenness nodes (e.g., bc1qhmzw5arsdwn..., bc1qsykwawvyz6ld...) may indicate peeling chains or mixing activity aimed at obfuscating fund origin, consistent with mixer services active in the 2020 cryptocurrency ecosystem.

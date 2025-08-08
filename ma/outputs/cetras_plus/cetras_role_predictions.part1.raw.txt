@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+    "role": "Centralized Exchange Hot Wallet",
+    "confidence": 0.9,
+    "rationale": "High degree (in:149, out:85) with many diverse neighbors and high betweenness (0.23) implies a key hub in transactions. Balanced in/out degree suggests active fund routing typical of exchange hot wallets."
+  },
+  {
+    "id": "bc1qsg03rhpftdd8e5e0rn0c9ch0m43dkw5kequcde",
+    "role": "Exchange Cold Wallet",
+    "confidence": 0.85,
+    "rationale": "High in-degree (243) and zero out-degree indicate accumulation of funds without spending. Low betweenness (0.018) suggests a sink node, consistent with cold storage."
+  },
+  {
+    "id": "bc1qsykwawvyz6lda7glpr50u8asfr8f8rcuw3tzqu",
+    "role": "Service Aggregator or Mixer",
+    "confidence": 0.8,
+    "rationale": "Very high in-degree (261) and moderate out-degree (22), with many diverse neighbors and moderate betweenness indicate it routes funds between many parties, typical of mixers or aggregators."
+  },
+  {
+    "id": "bc1qhmzw5arsdwnuhvcunrcua876p0c3juk0xsr7wm",
+    "role": "Exchange Hot Wallet",
+    "confidence": 0.9,
+    "rationale": "Very high in-degree (322) and some out-degree (8), moderate betweenness (0.01), and many neighbors suggest a hot wallet receiving and dispatching funds actively."
+  },
+  {
+    "id": "bc1qdwgvqdgezez2jh857zyny89k6g0hw8dm875laf",
+    "role": "Exchange Cold Wallet",
+    "confidence": 0.8,
+    "rationale": "High in-degree (261) and zero out-degree, with moderate betweenness, indicates a recipient of funds that does not spend, typical of cold wallets."
+  },
+  {
+    "id": "bc1qnudasxn0wr0gwffq4akhkagmf37nh29fe7yv3g",
+    "role": "Exchange Cold Wallet",
+    "confidence": 0.8,
+    "rationale": "High in-degree (261), zero out-degree, and moderate betweenness indicate a fund sink, consistent with cold wallet behavior."
+  },
+  {
+    "id": "bc1qy0lk6995alw8xfd8fdu23un9c0uxm052z2dj6q",
+    "role": "Exchange Cold Wallet",
+    "confidence": 0.8,
+    "rationale": "High in-degree (261), no out-degree, and moderate betweenness suggest accumulation and holding of funds, typical of cold wallets."
+  },
+  {
+    "id": "bc1q2frxzhtnyk2xwe454wh9w4ksudaa6gkv4xm3nv",
+    "role": "Service Aggregator",
+    "confidence": 0.75,
+    "rationale": "High in-degree (242), low out-degree (2), moderate betweenness, and diverse neighbors indicate partial fund redistribution, typical of aggregators or mixers."
+  },
+  {
+    "id": "bc1ql9f2nz9zr74xt5ws0c2pe3cdkukd6j9pc3txrm",
+    "role": "Service Aggregator",

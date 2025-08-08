@@ -1,0 +1,3 @@
+sampler,nodes,edges,avg_clustering,num_SCC,num_WCC,largest_SCC,largest_WCC
+RWFB,10000,8527,0.027754223909834105,9828,3557,71,3610
+CETraS-like(fast),10000,69981,0.03085791563202417,9764,566,216,8293

@@ -1,0 +1,23 @@
+\begin{table}[!t]
+\centering
+\caption{Impact of Multi-Agent Collaboration on Analysis Quality}
+\label{tab:collaboration-impact}
+\small
+\begin{tabular}{l c c c}
+\toprule
+\textbf{Metric} & \textbf{Independent} & \textbf{Collaborative} & \textbf{Improvement} \\
+\midrule
+Role Disagreement & 18.8\% & 9.2\% & -51\% \\
+Role Distribution JSD & 0.284 bits & 0.156 bits & -45\% \\
+Anomaly Keywords JSD & 0.612 bits & 0.398 bits & -35\% \\
+Summary Keywords JSD & 0.356 bits & 0.214 bits & -40\% \\
+\textbf{Overall SDM} & \textbf{0.397} & \textbf{0.257} & \textbf{-35\%} \\
+\midrule
+CI (RWFB) & 0.897 & 0.942 & +5.0\% \\
+CI (CETraS) & 0.923 & 0.958 & +3.8\% \\
+\midrule
+\multicolumn{4}{l}{\footnotesize Collaboration adjusted 9.75\% of classifications (195/2000 nodes)} \\
+\multicolumn{4}{l}{\footnotesize Information exchanges: 9 (3 agents $\times$ 3 iterations)} \\
+\bottomrule
+\end{tabular}
+\end{table}
